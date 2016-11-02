@@ -18,7 +18,7 @@ Precio unitario
                     <th>ID</th>
                     <th>ITEM</th>
                     <th>Cantidad</th>
-                    <th>Subtotal</th>
+                    <th>Preciounitario</th>
                     <th>Total</th>
 
                 </tr>
@@ -29,7 +29,7 @@ Precio unitario
                     <td>{{$preciounitarios->id}}</td>
                     <td>{{$preciounitarios->item}}</td>
                     <td>{{$preciounitarios->cantidad}}</td>
-                    <td>{{$preciounitarios->subtotal}}</td>
+                    <td>{{$preciounitarios->preciounitario}}</td>
                     <td>{{$preciounitarios->total}}</td>
                 </tr>
                 @endforeach

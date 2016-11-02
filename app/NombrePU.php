@@ -8,7 +8,7 @@ class NombrePU extends Model
 {
     protected $table ='nombrepu';
 
-    protected $fillable= ['id','nombrepu','unidad', 'presupuesto_fk'];
+    protected $fillable= ['id','nombrepu','unidad','cantidad','preciounitario','total', 'presupuesto_fk'];
 
     public function preciounitario()
     {

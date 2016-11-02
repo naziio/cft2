@@ -62,6 +62,10 @@ Detalle de presupuesto
                     <td>{{$nombrepus->id}}</td>
                     <td>{{$nombrepus->nombrepu}}</td>
                     <td>{{$nombrepus->unidad}}</td>
+                    <td>{{$nombrepus->cantidad}}</td>
+                    <td>{{$nombrepus->preciounitario}}</td>
+                    <td>{{$nombrepus->total}}</td>
+
 
 
 

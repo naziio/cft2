@@ -17,7 +17,7 @@ class PrecioUnitarioController extends Controller
    public function index($nombrepus){
 
        $nombrepu=NombrePU::find($nombrepus);
-       $preciounitario= PrecioUnitario::select('item','cantidad','subtotal','total')
+       $preciounitario= PrecioUnitario::select('item','cantidad','preciounitario','total')
            ->where('nombrepu',$nombrepu->id)
            ->get();
 
@@ -81,7 +81,9 @@ class PrecioUnitarioController extends Controller
                         $preciounitario=new PrecioUnitario;
                         $preciounitario->item= $fila->item;
                         $preciounitario->cantidad= $fila->cantidad;
-                        $preciounitario->subtotal= $fila->subtotal;
+                        $preciounitario->preciounitario= $fila->preciounitario;
+                       $preciounitario->rend= $fila->rend;
+                       $preciounitario->perd= $fila->perd;
                         $preciounitario->total= $fila->total;
                        $preciounitario->nombrepu=$nombrepu;
                         $preciounitario->save();

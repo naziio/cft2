@@ -19,7 +19,7 @@ class NombrePUController extends Controller
        $presupuesto=Presupuesto::find($presupuestos);
 //dd($presupuesto->id);
 
-       $nombrepu= NombrePU::select('id','nombrepu','unidad')
+       $nombrepu= NombrePU::select('id','nombrepu','unidad','cantidad','preciounitario','total')
            ->where('presupuesto_fk',$presupuesto->id)
            ->get();
 
@@ -67,7 +67,7 @@ class NombrePUController extends Controller
     public function cargar_datos2(Request $request)
     {
         $presupuesto=$request->presupuesto;
-        //dd($presupuesto);
+
         $archivo = $request->file('archivo');
         $nombre_original=$archivo->getClientOriginalName();
         $extension=$archivo->getClientOriginalExtension();
@@ -84,6 +84,9 @@ class NombrePUController extends Controller
                     $nombrepu=new NombrePU();
                     $nombrepu->nombrepu=$fila->nombrepu;
                     $nombrepu->unidad= $fila->unidad;
+                    $nombrepu->cantidad=$fila->cantidad;
+                    $nombrepu->preciounitario=$fila->preciounitario;
+                    $nombrepu->total=$fila->total;
                     $nombrepu->presupuesto_fk=$presupuesto;
                     $nombrepu->save();
 

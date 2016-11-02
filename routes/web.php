@@ -35,8 +35,9 @@ Route::group(['middleware' => 'web'], function () {
 
 
 
-    Route::resource('obra/preciounitario', 'PrecioUnitarioController');
+    //Route::resource('obra/preciounitario', 'PrecioUnitarioController');
 
+    Route::get('obra/preciounitario/index/{nombrepus}', 'PrecioUnitarioController@index');
     Route::get('cargar/{nombrepus}', ['as' => 'cargar','uses' => 'PrecioUnitarioController@cargar'] );
 
     Route::post('cargar/cargar_datos', 'PrecioUnitarioController@cargar_datos' );
@@ -65,6 +66,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('obra/factura/detalle/create', ['as'=> 'detalle/store', 'uses' => 'DetalleFacturaController@store']);
 
     //Route::post('obra/factura/detalle/index','DetalleFacturaController@store' );
+
+    Route::get('obra/comparar/index/{facturas}', ['as' => 'comparar/index', 'uses'=> 'DetalleFacturaController@Comparar']);
 
     Route::get('obra/index', function()
     {

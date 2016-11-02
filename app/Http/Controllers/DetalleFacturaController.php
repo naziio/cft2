@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DetalleFactura;
 use App\Factura;
 
+use App\NombrePU;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -99,6 +100,16 @@ class DetalleFacturaController extends Controller
             return redirect("obra/factura/detalle")->with("msj"," detalles Cargados Correctamente");
 
         }
+    }
+
+    public function comparar($facturas)
+    {
+
+        $detalle= DetalleFactura::where('factura_fk', $facturas)
+            ->get();
+        $nombrepu=NombrePU::where('presupuesto_fk', $facturas)
+            ->get();
+        return view('obra.comparar.index', compact('detalle','nombrepu'));
     }
 }
 

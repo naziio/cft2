@@ -6,36 +6,55 @@
 
 
 @section('main-content')
-<div class="container">
-    <table class="table">
+<div class="container-fluid">
+    <div class="col-md-6">
+    <table class="table table-responsive">
         <thead>
         <tr>
             <th>ID</th>
             <th>Item</th>
-            <th>cantidad</th>
+            <th>Cantidad</th>
             <th>Precio unitario</th>
             <th>Total</th>
-
-
         </tr>
         </thead>
         <tbody >
-        @foreach ($detalle as $detalles)
-            <tr id="detalle{{$detalles->id}}">
-                <td>{{$detalles->id}}</td>
-                <td>{{$detalles->id_producto}}</td>
+        @foreach ($nombrepu as $nombrepus)
+            <tr id="nombrepu{{$nombrepus->id}}">
+                <td>{{$nombrepus->id}}</td>
+                <td>{{$nombrepus->nombrepu}}</td>
+                @endforeach
+            </tr>
+
+        </tbody>
+
+
+    </table>
+
+    </div>
+        <div class="col-md-6">
+            <br/>
+           <table class="table table-responsive">
+               <thead>
+               <tr>
+               <th>PU Factura</th>
+               <th>Cantidad</th>
+               <th>Total</th>
+                   <th>IVA</th>
+               </tr>
+               </thead>
+               <tbody>
+
+                @foreach ($detalle as $detalles)
+                <tr>
                 <td>{{$detalles->cantidad}}</td>
                 <td>{{$detalles->precio_unitario}}</td>
                 <td>{{$detalles->total}}</td>
-                <td>{{$detalles->created_at}}</td>
-                <td>
-                    <a href="#"><button  class="btn btn-warning btn-xs " value="{{$detalles->id}}">Ver</button></a>
-                    <a href="#"><button class="btn btn-danger btn-xs " value="{{$detalles->id}}">Eliminar</button></a>
-                </td>
-            </tr>
-        @endforeach
+               @endforeach
+               </tr>
         </tbody>
     </table>
+</div>
 </div>
 
 @endsection
