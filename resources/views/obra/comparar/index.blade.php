@@ -8,7 +8,7 @@
 @section('main-content')
 <div class="container-fluid">
     <div class="col-md-6">
-    <table class="table table-responsive">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th>ID</th>
@@ -23,6 +23,9 @@
             <tr id="nombrepu{{$nombrepus->id}}">
                 <td>{{$nombrepus->id}}</td>
                 <td>{{$nombrepus->nombrepu}}</td>
+                <td>{{$nombrepus->cantidad}}</td>
+                <td>{{$nombrepus->preciounitario}}</td>
+                <td>{{$nombrepus->total}}</td>
                 @endforeach
             </tr>
 
@@ -33,7 +36,7 @@
 
     </div>
         <div class="col-md-6">
-            <br/>
+
            <table class="table table-responsive">
                <thead>
                <tr>

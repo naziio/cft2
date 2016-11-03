@@ -37,7 +37,7 @@ class DetalleFacturaController extends Controller
 
         $detalle= new DetalleFactura($request->all());
         $detalle->save();
-        return view('obra.factura.detalle.create');
+        return view('obra.obra.index');
 
     }
     public function edit($detalle)
@@ -102,12 +102,12 @@ class DetalleFacturaController extends Controller
         }
     }
 
-    public function comparar($facturas)
+    public function comparar($obras)
     {
 
-        $detalle= DetalleFactura::where('factura_fk', $facturas)
+        $detalle= DetalleFactura::where('factura_fk', $obras)
             ->get();
-        $nombrepu=NombrePU::where('presupuesto_fk', $facturas)
+        $nombrepu=NombrePU::where('presupuesto_fk', $obras)
             ->get();
         return view('obra.comparar.index', compact('detalle','nombrepu'));
     }

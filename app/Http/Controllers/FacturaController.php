@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DetalleFactura;
 use App\Factura;
+use App\NombrePU;
 use App\Proveedor;
 
 //use App\Personal;
@@ -21,8 +22,11 @@ class FacturaController extends Controller
             ->pluck('name','name');
         $factura = Factura::where('obra_fk',$obras)
         ->get();
+        $nombrepu = NombrePU::select('nombrepu')
+        ->where('presupuesto_fk',$obras)
+            ->pluck('nombrepu','nombrepu');
         $selected = array();
-        return view('obra.factura.index',compact('factura','proveedor','selected','obras'));
+        return view('obra.factura.index',compact('factura','proveedor','selected','nombrepu','obras'));
         //return view('obra.factura.index');
     }
 
