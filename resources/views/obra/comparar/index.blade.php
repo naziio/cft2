@@ -7,7 +7,7 @@
 
 @section('main-content')
 <div class="container-fluid">
-    <div class="col-md-6">
+    <div class="col-md-8">
     <table class="table table-hover">
         <thead>
         <tr>
@@ -16,48 +16,35 @@
             <th>Cantidad</th>
             <th>Precio unitario</th>
             <th>Total</th>
+            <th>cantidad</th>
+            <th>PU</th>
+            <th>total</th>
+
         </tr>
         </thead>
         <tbody >
         @foreach ($nombrepu as $nombrepus)
-            <tr id="nombrepu{{$nombrepus->id}}">
-                <td>{{$nombrepus->id}}</td>
-                <td>{{$nombrepus->nombrepu}}</td>
-                <td>{{$nombrepus->cantidad}}</td>
-                <td>{{$nombrepus->preciounitario}}</td>
-                <td>{{$nombrepus->total}}</td>
-                @endforeach
+        <tr>
+            <td>{{$nombrepus->id}}</td>
+            <td>{{$nombrepus->nombrepu}}</td>
+            <td>{{$nombrepus->cantidad}}</td>
+            <td>{{$nombrepus->preciounitario}}</td>
+            <td>{{$nombrepus->total}}</td>
+            @foreach($nombrepus->detalle as $detalle)
+            @if($nombrepus->nombrepu == $detalle->nombrepu)
+            {{ola}}
+            @endif
+            @endforeach
+            @endforeach
+
             </tr>
 
+
         </tbody>
 
 
     </table>
 
-    </div>
-        <div class="col-md-6">
-
-           <table class="table table-responsive">
-               <thead>
-               <tr>
-               <th>PU Factura</th>
-               <th>Cantidad</th>
-               <th>Total</th>
-                   <th>IVA</th>
-               </tr>
-               </thead>
-               <tbody>
-
-                @foreach ($detalle as $detalles)
-                <tr>
-                <td>{{$detalles->cantidad}}</td>
-                <td>{{$detalles->precio_unitario}}</td>
-                <td>{{$detalles->total}}</td>
-               @endforeach
-               </tr>
-        </tbody>
-    </table>
 </div>
 </div>
-
 @endsection

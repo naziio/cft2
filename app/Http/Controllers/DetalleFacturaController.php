@@ -28,12 +28,22 @@ class DetalleFacturaController extends Controller
 
     public function create($factura)
     {
+        $obra=Factura::select('obra_fk')
+            ->where('id',$factura)
+        ->pluck('obra_fk','obra_fk');
 
-        return view('obra.factura.detalle.create', compact('factura'));
+
+        $id_producto= NombrePU::select('nombrepu')
+            ->where('presupuesto_fk',$obra)
+            ->pluck('nombrepu','nombrepu');
+        $selected = array();
+
+        return view('obra.factura.detalle.create', compact('factura','id_producto','selected'));
     }
 
     public function store(Request $request)
     {
+
 
         $detalle= new DetalleFactura($request->all());
         $detalle->save();
@@ -102,14 +112,31 @@ class DetalleFacturaController extends Controller
         }
     }
 
-    public function comparar($obras)
+    public function comparar($factura)
     {
 
-        $detalle= DetalleFactura::where('factura_fk', $obras)
+        $obra=Factura::select('obra_fk')
+            ->where('id',$factura)
+            ->pluck('obra_fk','obra_fk');
+
+
+        $id_producto= NombrePU::select('nombrepu')
+            ->where('presupuesto_fk',$obra)
+            ->pluck('nombrepu','nombrepu');
+        $selected = array();
+
+
+        $detalle= DetalleFactura::select('id')
+        ->where('factura_fk', $factura)
             ->get();
-        $nombrepu=NombrePU::where('presupuesto_fk', $obras)
-            ->get();
-        return view('obra.comparar.index', compact('detalle','nombrepu'));
+        //dd($detalle);
+       $nombrepu=NombrePU::where('presupuesto_fk', $obra)
+           ->get();
+        $comparar = DetalleFactura::where('nombrepu',$id_producto)
+            ->toSql();
+
+
+        return view('obra.comparar.index', compact('nombrepu'));
     }
 }
 

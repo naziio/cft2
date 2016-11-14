@@ -15,13 +15,13 @@ Detalle
         {!! Form::open(['route'=>'detalle/store', 'method'=>'POST'])!!}
 
 
-
-            <div class="form-group">
-                <label for="id_producto" class="col-sm-3 control-label">Descripcion</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control " id="id_producto" name="id_producto">
-                </div>
+        <div class="form-group">
+            <label for="id_producto" class="col-sm-3 control-label">Descripcion</label>
+            <div class="col-sm-9">
+                {!! Form::select('id_producto', $id_producto,$selected,['class' => 'form-control', 'id'=> 'id_producto']) !!}
             </div>
+        </div>
+
             <div class="form-group">
                 <label for="cantidad" class="col-sm-3 control-label">Cantidad</label>
                 <div class="col-sm-9">

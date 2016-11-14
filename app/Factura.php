@@ -25,5 +25,9 @@ class Factura extends Model
      * @var array
      */
 
+    public function detalle()
+    {
+        return $this->belongsToMany('App\DetalleFactura','id_producto');
+    }
 
 }

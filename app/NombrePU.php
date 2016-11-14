@@ -8,7 +8,7 @@ class NombrePU extends Model
 {
     protected $table ='nombrepu';
 
-    protected $fillable= ['id','nombrepu','unidad','cantidad','preciounitario','total', 'presupuesto_fk'];
+    protected $fillable= ['id','nombrepu','unidad','cantidad','preciounitario','total', 'presupuesto_fk','id_producto'];
 
     public function preciounitario()
     {
@@ -17,5 +17,9 @@ class NombrePU extends Model
     public function presupuesto()
     {
         return $this->belongsto('App\Presupuesto');
+    }
+    public function detalle()
+    {
+        return $this->hasmany('App\DetalleFactura', 'nombrepu');
     }
 }

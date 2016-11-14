@@ -52,7 +52,7 @@ detalle
                 @foreach ($detalle as $detalles)
                 <tr id="detalle{{$detalles->id}}">
                     <td>{{$detalles->id}}</td>
-                    <td>{{$detalles->id_producto}}</td>
+                    <td>{{$detalles->nombrepu}}</td>
                     <td>{{$detalles->cantidad}}</td>
                     <td>{{$detalles->precio_unitario}}</td>
                     <td>{{$detalles->total}}</td>

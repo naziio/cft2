@@ -31,7 +31,7 @@ detalle
                 @foreach ($detalle as $detalles)
                 <tr id="detalle{{$detalles->id}}">
                     <td>{{$detalles->id}}</td>
-                    <td>{{$detalles->id_producto}}</td>
+                    <td>{{$detalles->nombrepu}}</td>
                     <td>{{$detalles->cantidad}}</td>
                     <td>{{$detalles->precio_unitario}}</td>
                     <td>{{$detalles->total}}</td>
@@ -58,9 +58,9 @@ detalle
 
 
                                 <div class="form-group">
-                                    <label for="id_producto" class="col-sm-3 control-label">Descripcion</label>
+                                    <label for="nombrepu" class="col-sm-3 control-label">Descripcion</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control " id="id_producto" name="id_producto">
+                                        <input type="text" class="form-control " id="nombrepu" name="nombrepu">
                                     </div>
                                 </div>
                                 <div class="form-group">

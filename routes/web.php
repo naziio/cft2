@@ -67,7 +67,7 @@ Route::group(['middleware' => 'web'], function () {
 
     //Route::post('obra/factura/detalle/index','DetalleFacturaController@store' );
 
-    Route::get('obra/comparar/index/{obras}', ['as' => 'comparar/index', 'uses'=> 'DetalleFacturaController@Comparar']);
+    Route::get('obra/comparar/index/{facturas}', ['as' => 'comparar/index', 'uses'=> 'DetalleFacturaController@Comparar']);
 
     Route::get('obra/index', function()
     {

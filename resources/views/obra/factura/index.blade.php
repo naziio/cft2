@@ -54,7 +54,7 @@ Facturas
 
 
                         <a href="{{ route('detalle/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="{{$facturas->id}}">Cargar Datos</button></a>
-                        <a href="{{ route('comparar/index', $obras) }}">  <button type="submit" class="btn btn-primary " value="">COMPARAR</button></a>
+                        <a href="{{ route('comparar/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">COMPARAR</button></a>
 
                         <button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$facturas->id}}">Editar</button>
 <!--                        <a href="{{ url('obra/factura/detalle/show', $facturas->id) }}"> <button class="btn btn-danger btn-xs" value="{{$facturas->id}}">Detalle</button></a>-->
