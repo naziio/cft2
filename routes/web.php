@@ -16,6 +16,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/admin', 'HomeController@index');
 
+    Route::get('obra/comparar/index1/{facturas}','DetalleFacturaController@index1');
 
     Route::get('/home', 'HomeController@index');
 

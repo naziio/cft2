@@ -138,5 +138,20 @@ class DetalleFacturaController extends Controller
 
         return view('obra.comparar.index', compact('nombrepu'));
     }
+
+    public function index1($factura)
+    {
+        $obra=Factura::select('obra_fk')
+            ->where('id',$factura)
+            ->pluck('obra_fk','obra_fk');
+        $nombrepu=NombrePU::where('presupuesto_fk', $obra)
+                        ->get();
+        $detalle=DetalleFactura::where('factura_fk',$factura)
+            ->get();
+
+        return view('obra.comparar.index1', compact('nombrepu','detalle'));
+    }
+
+
 }
 
