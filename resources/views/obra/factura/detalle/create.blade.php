@@ -16,9 +16,9 @@ Detalle
 
 
         <div class="form-group">
-            <label for="id_producto" class="col-sm-3 control-label">Descripcion</label>
+            <label for="nombrepu" class="col-sm-3 control-label">Descripcion</label>
             <div class="col-sm-9">
-                {!! Form::select('id_producto', $id_producto,$selected,['class' => 'form-control', 'id'=> 'id_producto']) !!}
+                {!! Form::select('nombrepu', $nombrepu,$selected,['class' => 'form-control', 'id'=> 'nombrepu']) !!}
             </div>
         </div>
 

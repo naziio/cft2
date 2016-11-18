@@ -11,7 +11,27 @@
 |
 */
 
+/* RUTA PARA DATATABLE
 
+
+ * Route::get('api/registros', function(){
+    $datos = Becas\Registro::select('id', DB::raw('CONCAT(nombre," ", paterno," ", materno) as nombre'), 'rut', DB::raw('IF (sede = "Serena", "La Serena", sede) as sede'), 'movil', 'mail')->get();
+    return Datatables::of($datos)
+        ->addColumn('detalle', function($datos){
+            return '<a href="'.route("registro.edit", $datos->id).'" class="btn btn-success btn-xs">Detalle</a>';
+        })
+        ->make(true);
+});
+
+EL HTML
+$('#table').DataTable({
+		"processing" : true,
+		"serverSide" : true,
+		"ajax" : "/api/registros",
+		"columns" : []
+
+
+*/
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/admin', 'HomeController@index');
@@ -68,7 +88,7 @@ Route::group(['middleware' => 'web'], function () {
 
     //Route::post('obra/factura/detalle/index','DetalleFacturaController@store' );
 
-    Route::get('obra/comparar/index/{facturas}', ['as' => 'comparar/index', 'uses'=> 'DetalleFacturaController@Comparar']);
+    Route::get('obra/comparar/index/{facturas}', ['as' => 'comparar/index', 'uses'=> 'DetalleFacturaController@index1']);
 
     Route::get('obra/index', function()
     {

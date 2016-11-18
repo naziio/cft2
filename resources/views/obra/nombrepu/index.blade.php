@@ -6,6 +6,8 @@ Detalle de presupuesto
 
 
 @section('main-content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
 <div class="container">
     <div class="container-narrow">
         <h2>Detalle presupuesto {{$presupuesto->nombrepresupuesto}}</h2>
@@ -45,7 +47,7 @@ Detalle de presupuesto
 
             </div>
             <!-- Table-to-load-the-data Part -->
-            <table class="table">
+            <table class="table" id="nombrepu">
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -54,13 +56,18 @@ Detalle de presupuesto
                     <th>Cantidad</th>
                     <th>Precio Unitario</th>
                     <th>Precio Total</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody >
                 @foreach ($nombrepu as $nombrepus)
                 <tr id="nombrepu{{$nombrepus->id}}">
                     <td>{{$nombrepus->id}}</td>
+                    @if($nombrepus->unidad == '')
+                    <th>{{$nombrepus->nombrepu}}</th>
+                    @else
                     <td>{{$nombrepus->nombrepu}}</td>
+                    @endif
                     <td>{{$nombrepus->unidad}}</td>
                     <td>{{$nombrepus->cantidad}}</td>
                     <td>{{$nombrepus->preciounitario}}</td>
@@ -78,7 +85,28 @@ Detalle de presupuesto
                 </tr>
                 @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Descripcion</th>
+                    <th>Unidad</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Precio Total</th>
+                    <th></th>
+                </tr>
+
+                </tfoot>
             </table>
             </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            $('#nombrepu').DataTable();
+        });
+    </script>
             @stop

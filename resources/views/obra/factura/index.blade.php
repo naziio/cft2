@@ -6,6 +6,8 @@ Facturas
 
 
 @section('main-content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
 
 <div class="container">
     <div class="container-narrow">
@@ -14,12 +16,11 @@ Facturas
         <div>
 
             <!-- Table-to-load-the-data Part -->
-            <table class="table">
+            <table class="table table-bordered" id="factura">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>Razon social</th>
-
                     <th>N° Factura</th>
                     <th>Subtotal</th>
                     <th>Recargo</th>
@@ -31,7 +32,8 @@ Facturas
                     <th>Concepto</th>
                     <th>Obser.</th>
 
-
+<th></th>
+                    <th></th>
                 </tr>
                 </thead>
                <tbody id="factura-list" name="factura-list">
@@ -62,6 +64,26 @@ Facturas
                 </tr>
                 @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Razon social</th>
+
+                    <th>N° Factura</th>
+                    <th>Subtotal</th>
+                    <th>Recargo</th>
+                    <th>Monto exento</th>
+                    <th>Descuentos</th>
+                    <th>Imp. especif.</th>
+                    <th>Neto</th>
+                    <th>IVA</th>
+                    <th>Concepto</th>
+                    <th>Obser.</th>
+<th></th>
+                    <th></th>
+
+                </tr>
+                </tfoot>
             </table>
             <!-- End of Table-to-load-the-data Part -->
             <!-- Modal (Pop up when detail button clicked) -->
@@ -181,6 +203,11 @@ Facturas
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{asset('js/factura.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#factura').DataTable();
+        });
+    </script>
     </body>
 
 

@@ -6,14 +6,17 @@ Presupuesto
 
 
 @section('main-content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
 <div class="container">
     <div class="container-narrow">
         <h2>Presupuesto</h2>
-        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Nuevo presupuesto</button>
+        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Nuevo presupuesto</button
+            </br>
         <div>
-
+            </br>
             <!-- Table-to-load-the-data Part -->
-            <table class="table">
+            <table class="table table-bordered" id="presupuesto">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -73,6 +76,11 @@ Presupuesto
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="{{asset('js/presupuesto.js')}}"></script>
+        <script>
+            $(document).ready(function(){
+                $('#presupuesto').DataTable();
+            });
+        </script>
     </div>
 </div>
             @stop

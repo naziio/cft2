@@ -6,6 +6,8 @@ Proveedores
 
 
 @section('main-content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
 <div class="container">
     <div class="container-narrow">
         <h2>Registro de proveedores</h2>
@@ -13,7 +15,7 @@ Proveedores
         <div>
 
             <!-- Table-to-load-the-data Part -->
-            <table class="table">
+            <table class="table" id="proveedor">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -21,6 +23,7 @@ Proveedores
                     <th>Razon social</th>
                     <th>Coreo</th>
                     <th>Direccion</th>
+                    <th></th>
 
 
                 </tr>
@@ -43,6 +46,18 @@ Proveedores
                 </tr>
                 @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>RUT</th>
+                    <th>Razon social</th>
+                    <th>Coreo</th>
+                    <th>Direccion</th>
+                    <th></th>
+
+
+                </tr>
+                </tfoot>
             </table>
             <!-- End of Table-to-load-the-data Part -->
             <!-- Modal (Pop up when detail button clicked) -->
@@ -97,7 +112,11 @@ Proveedores
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{asset('js/proveedor.js')}}"></script>
-
+    <script>
+        $(document).ready(function(){
+            $('#proveedor').DataTable();
+        });
+    </script>
     </body>
 
 

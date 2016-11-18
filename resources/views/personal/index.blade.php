@@ -6,6 +6,8 @@ Personal CFT
 
 
 @section('main-content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
 <div class="container">
     <div class="container-narrow">
         <h2>Registro de Personal</h2>
@@ -13,7 +15,8 @@ Personal CFT
         <div>
 
             <!-- Table-to-load-the-data Part -->
-            <table class="table">
+            <div class="table-responsive">
+            <table class="table table-bordered" id="personal">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -66,7 +69,30 @@ Personal CFT
                 </tr>
                 @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Rut</th>
+                    <th>Nacionalidad</th>
+                    <th>Estado civil</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Direccion</th>
+                    <th>Comuna</th>
+                    <th>Telefono</th>
+                    <th>Prevision</th>
+                    <th>AFP</th>
+                    <th>Fecha ingreso</th>
+                    <th>Faena de termino</th>
+                    <th>Sueldo liquido</th>
+                    <th>N° calzado</th>
+                    <th>Cargo</th>
+
+                </tr>
+                </tfoot>
             </table>
+            </div>
             <!-- End of Table-to-load-the-data Part -->
             <!-- Modal (Pop up when detail button clicked) -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -198,4 +224,10 @@ Personal CFT
 
 
 </div>
+<script>
+    $(document).ready(function(){
+        $('#personal').DataTable();
+    });
+</script>
+
 @endsection

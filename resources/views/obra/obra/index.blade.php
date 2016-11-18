@@ -6,6 +6,8 @@ Obras
 
 
 @section('main-content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
 <div class="container">
     <div class="container-narrow">
         <h2>Registro de OBRAS</h2>
@@ -13,7 +15,7 @@ Obras
         <div>
 
             <!-- Table-to-load-the-data Part -->
-            <table class="table">
+            <table class="table" id="obras">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -21,7 +23,7 @@ Obras
                     <th>Direccion</th>
                     <th>Telefono</th>
                     <th>Fecha inicio</th>
-
+<th></th>
                 </tr>
                 </thead>
                 <tbody id="obra-list" name="obra-list">
@@ -41,6 +43,16 @@ Obras
                 </tr>
                 @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Fecha inicio</th>
+                    <th></th>
+                </tr>
+                </tfoot>
             </table>
             <!-- End of Table-to-load-the-data Part -->
             <!-- Modal (Pop up when detail button clicked) -->
@@ -105,4 +117,9 @@ Obras
 
 
 </div>
+<script>
+    $(document).ready(function(){
+        $('#obras').DataTable();
+    });
+</script>
 @endsection
