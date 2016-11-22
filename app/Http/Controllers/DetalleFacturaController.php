@@ -155,9 +155,9 @@ $obradetalle=$request->factura_fk;
         $obra= Factura::find($factura);
         $obra= $obra->obra_fk;
 
-      //  $nombrepu=NombrePU::where('presupuesto_fk', $obra)
+      // $nombrepu=NombrePU::where('presupuesto_fk', $obra)
        //                 ->get();
-        $nombrepu = DB::table('nombrepu')
+       $nombrepu = DB::table('nombrepu')
             ->join('detalle_factura', 'nombrepu.nombrepu', '=', 'detalle_factura.nombrepu')
             ->select('nombrepu.nombrepu','nombrepu.cantidad as cantidad1','nombrepu.preciounitario','nombrepu.total as total1','detalle_factura.*')
             ->where('detalle_factura.factura_fk',$factura)
@@ -166,7 +166,13 @@ $obradetalle=$request->factura_fk;
         //$detalle=DetalleFactura::where('factura_fk',$factura)
          //   ->get();
 
-        return view('obra.comparar.index', compact('nombrepu'));
+// $nombrepu=NombrePU::where('presupuesto_fk', $obra)
+
+       /* $detalle = DB::table('detalle_factura')
+            ->where('detalle_factura.factura_fk',$factura)
+            ->get();
+        */
+        return view('obra.comparar.index', compact('nombrepu','detalle'));
     }
 
 

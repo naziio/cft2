@@ -119,6 +119,6 @@ Proveedores
     </script>
     </body>
 
-
+    <a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>
 </div>
 @endsection

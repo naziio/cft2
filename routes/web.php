@@ -48,6 +48,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('personal', 'PersonalController');
 
+    Route::get('personal/ver/{obras}', 'PersonalController@ver');
+
     Route::get('obra/factura/index/{obras}', 'FacturaController@index'); //en desarrollo
 
     Route::post('obra/factura/index/{obras}','FacturaController@store');

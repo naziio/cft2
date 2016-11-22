@@ -23,6 +23,7 @@ Obras
                     <th>Direccion</th>
                     <th>Telefono</th>
                     <th>Fecha inicio</th>
+                    <th>Personal</th>
 <th></th>
                 </tr>
                 </thead>
@@ -34,6 +35,7 @@ Obras
                     <td>{{$obras->direccion}}</td>
                     <td>{{$obras->telefono}}</td>
                     <td>{{$obras->fecha}}</td>
+                    <td><a href="{{ url('personal/ver', $obras->id)}}"><button  class="btn btn-primary btn-xs btn-detail" value="{{$obras->id}}">Personal</button></a></td>
                     <td>
                         <button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$obras->id}}">Editar</button>
                         <button class="btn btn-danger btn-xs btn-delete delete-obra" value="{{$obras->id}}" >Eliminar</button>
@@ -50,6 +52,7 @@ Obras
                     <th>Direccion</th>
                     <th>Telefono</th>
                     <th>Fecha inicio</th>
+                    <th>Personal</th>
                     <th></th>
                 </tr>
                 </tfoot>
@@ -115,11 +118,12 @@ Obras
 
     </body>
 
-
+    <a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>
 </div>
 <script>
     $(document).ready(function(){
         $('#obras').DataTable();
     });
 </script>
+
 @endsection

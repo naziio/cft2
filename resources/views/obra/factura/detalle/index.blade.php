@@ -75,6 +75,6 @@ detalle
     <script src="{{asset('js/detalle.js')}}"></script>
     </body>
 
-
+    <a href="{{ url()->previous() }}" class="btn btn-info">Back</a>
 </div>
 @endsection

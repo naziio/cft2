@@ -36,6 +36,8 @@ Personal CFT
                     <th>Sueldo liquido</th>
                     <th>N° calzado</th>
                     <th>Cargo</th>
+                    <th>Obra</th>
+                    <th>Estado</th>
 
                 </tr>
                 </thead>
@@ -59,6 +61,8 @@ Personal CFT
                     <td>{{$personals->sueldo_liquido}}</td>
                     <td>{{$personals->calzado}}</td>
                     <td>{{$personals->cargo}}</td>
+                    <td>{{$personals->obra_fk}}</td>
+                    <td>{{$personals->estado}}</td>
 
                     <td>
                         <button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$personals->id}}">Editar</button>
@@ -88,6 +92,8 @@ Personal CFT
                     <th>Sueldo liquido</th>
                     <th>N° calzado</th>
                     <th>Cargo</th>
+                    <th>Obra</th>
+                    <th>Estado</th>
 
                 </tr>
                 </tfoot>
@@ -204,6 +210,19 @@ Personal CFT
                                         <input type="text" class="form-control has-error" id="cargo" name="cargo" placeholder="Jornal" value="">
                                     </div>
                                 </div>
+                                <div class="form-group error">
+                                    <label for="obra_fk" class="col-sm-3 control-label">Obra</label>
+                                    <div class="col-sm-9">
+                                        {!! Form::select('obra_fk', $obra_fk,$selected,['class' => 'form-control', 'id'=> 'obra_fk']) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group error">
+                                    <label for="estado" class="col-sm-3 control-label">Estado</label>
+                                    <div class="col-sm-9">
+
+                                        {!! Form::select('estado', array('vigente' => 'Vigente', 'no_vigente' => 'No vigente'),'vigente',['class' => 'form-control', 'id'=> 'estado']) !!}
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -222,7 +241,7 @@ Personal CFT
 
     </body>
 
-
+    <a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>
 </div>
 <script>
     $(document).ready(function(){

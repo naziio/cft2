@@ -74,5 +74,6 @@ Precio unitario
         $('#preciounitario').DataTable();
     });
 </script>
+<a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>
 @stop
 

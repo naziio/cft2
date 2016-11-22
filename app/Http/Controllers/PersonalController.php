@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Obra;
 use Illuminate\Http\Request;
 use App\Personal;
 use Illuminate\Support\Facades\Response;
@@ -12,8 +13,11 @@ class PersonalController extends Controller
     public function index()
     {
         $personal= Personal::all();
+        $obra_fk= Obra::all()
+            ->pluck('name','id');
+        $selected = array();
 
-        return view('personal.index')->with('personal',$personal);
+        return view('personal.index',compact('personal','obra_fk','selected'));
 
     }
 
@@ -65,6 +69,8 @@ class PersonalController extends Controller
         $personal->sueldo_liquido = $request->sueldo_liquido;
         $personal->calzado = $request->calzado;
         $personal->cargo = $request->cargo;
+        $personal->estado = $request->estado;
+        $personal->obra_fk = $request->obra_fk;
         $personal->save();
         return Response::json($personal);
     }
@@ -73,5 +79,14 @@ class PersonalController extends Controller
     {
 
     }
+
+    public function ver($obras)
+    {
+        $personal= Personal::select('*')
+            ->where('obra_fk', $obras)
+            ->get();
+        return view('personal.ver', compact('personal'));
+    }
+
 
 }

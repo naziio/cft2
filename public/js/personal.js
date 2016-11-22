@@ -40,6 +40,8 @@ $(document).ready(function(){
             $('#sueldo_liquido').val(data.sueldo_liquido);
             $('#calzado').val(data.calzado);
             $('#cargo').val(data.cargo);
+            $('#obra_fk').val(data.obra_fk);
+            $('#estado').val(data.estado);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
 
@@ -99,7 +101,9 @@ $(document).ready(function(){
        faena_termino: $('#faena_termino').val(),
        sueldo_liquido: $('#sueldo_liquido').val(),
        calzado: $('#calzado').val(),
-       cargo: $('#cargo').val()
+       cargo: $('#cargo').val(),
+       obra: $('#obra_fk').val(),
+       estado: $('#estado').val()
 
         }
 
@@ -126,7 +130,7 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
 
-                var personal = '<tr id="personal' + data.id + '"><td>' + data.id + '</td><td>' + data.nombre + '</td><td>' + data.apellidos + '</td><td>' + data.rut + '</td>'+ data.nacionalidad + '</td><td>'+ data.estado_civil + '</td><td>'+ data.fecha_nac + '</td><td>'+ data.direccion + '</td><td>'+ data.comuna + '</td><td>'+ data.telefono + '</td><td>'+ data.prevision + '</td><td>'+ data.afp + '</td><td>'+ data.fecha_ingreso + '</td><td>'+ data.faena_termino + '</td><td>' + data.sueldo_liquido + '</td><td>'+ data.calzado + '</td><td>'+ data.cargo + '</td><td>';
+                var personal = '<tr id="personal' + data.id + '"><td>' + data.id + '</td><td>' + data.nombre + '</td><td>' + data.apellidos + '</td><td>' + data.rut + '</td>'+ data.nacionalidad + '</td><td>'+ data.estado_civil + '</td><td>'+ data.fecha_nac + '</td><td>'+ data.direccion + '</td><td>'+ data.comuna + '</td><td>'+ data.telefono + '</td><td>'+ data.prevision + '</td><td>'+ data.afp + '</td><td>'+ data.fecha_ingreso + '</td><td>'+ data.faena_termino + '</td><td>' + data.sueldo_liquido + '</td><td>'+ data.calzado + '</td><td>'+ data.cargo + '</td><td>'+ data.obra_fk + '</<td><td>'+ data.estado +'</td></td>';
                 personal += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Editar</button>';
                 personal += '<button class="btn btn-danger btn-xs btn-delete delete-personal" value="' + data.id + '">Eliminar</button></td></tr>';
 
