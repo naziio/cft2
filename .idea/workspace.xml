@@ -24,19 +24,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2016_11_22_120908_add_estado_personal_table.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_22_120908_add_estado_personal_table.php">
+      <file leaf-file-name="web.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="32" selection-start="624" selection-end="624" vertical-scroll-proportion="-11.269231" vertical-offset="183" max-vertical-offset="680">
+            <state line="75" column="61" selection-start="2881" selection-end="2881" vertical-scroll-proportion="0.18062827" vertical-offset="1053" max-vertical-offset="1768">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2016_11_18_200319_add_role_user_table.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="346" selection-end="346" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="578">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionTimeout.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/SessionTimeout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="91" selection-start="873" selection-end="873" vertical-scroll-proportion="-6.5384617" vertical-offset="255" max-vertical-offset="697">
+              <folding>
+                <element signature="e#37#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Kernel.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="6" selection-start="1819" selection-end="1819" vertical-scroll-proportion="-9.961538" vertical-offset="693" max-vertical-offset="1088">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Role.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Role.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="20" selection-start="164" selection-end="164" vertical-scroll-proportion="3.7692308" vertical-offset="302" max-vertical-offset="697">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/obra/obra/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="2295">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/obra/factura/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="132" selection-start="538" selection-end="538" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="3808">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2016_11_18_200319_add_role_user_table.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_18_200319_add_role_user_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="28" selection-start="555" selection-end="555" vertical-scroll-proportion="0.66346157" vertical-offset="183" max-vertical-offset="646">
+            <state line="20" column="5" selection-start="430" selection-end="430" vertical-scroll-proportion="-9.076923" vertical-offset="70" max-vertical-offset="646">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="663">
               <folding />
             </state>
           </provider>
@@ -58,20 +123,13 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/NombrePUController.php" />
         <option value="$PROJECT_DIR$/app/PrecioUnitario.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PrecioUnitarioController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FacturaController.php" />
-        <option value="$PROJECT_DIR$/app/Factura.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_11_14_163658_NombrePUCambiarNombre.php" />
-        <option value="$PROJECT_DIR$/app/DetalleFactura.php" />
         <option value="$PROJECT_DIR$/app/NombrePU.php" />
         <option value="$PROJECT_DIR$/public/js/comparartable.js" />
         <option value="$PROJECT_DIR$/resources/views/obra/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/htmlheader.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/scripts.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/obra/comparar/index1.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/Role.php" />
-        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DetalleFacturaController.php" />
-        <option value="$PROJECT_DIR$/resources/views/obra/factura/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/obra/factura/detalle/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/obra/factura/detalle/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/obra/factura/detalle/show.blade.php" />
@@ -84,11 +142,24 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_11_22_120908_add_estado_personal_table.php" />
         <option value="$PROJECT_DIR$/public/js/personal.js" />
         <option value="$PROJECT_DIR$/resources/views/personal/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/obra/obra/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/personal/ver.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PersonalController.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/app/Personal.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_11_23_120833_add_userid_factura_table.php" />
+        <option value="$PROJECT_DIR$/app/Factura.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FacturaController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DetalleFacturaController.php" />
+        <option value="$PROJECT_DIR$/app/DetalleFactura.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_11_23_153139_add_userid_detalle_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_11_18_200319_add_role_user_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/Tiempo.php" />
+        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/SessionTimeout.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/Role.php" />
+        <option value="$PROJECT_DIR$/resources/views/obra/obra/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/obra/factura/index.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -180,7 +251,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -194,11 +269,103 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obra" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obra" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obra" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obra" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="factura" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -213,6 +380,82 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Middleware" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exceptions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Console" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -275,7 +518,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2994693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29416224" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -283,13 +526,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -309,9 +552,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3419257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -339,48 +582,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ObraController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/sistemalaravel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2890" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NombrePUController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="19" selection-start="546" selection-end="546" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1904" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FacturaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="100" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="2040" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Factura.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="69" selection-start="624" selection-end="624" vertical-scroll-proportion="-17.846153" vertical-offset="29" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2176" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_07_182653_create_NombrePU_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PresupuestoController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918" />
@@ -404,13 +605,6 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PrecioUnitarioController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="57" selection-start="2553" selection-end="2553" vertical-scroll-proportion="-2.0" vertical-offset="1257" max-vertical-offset="1768" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DetalleFactura.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="31" selection-start="311" selection-end="311" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/NombrePU.php">
@@ -450,137 +644,160 @@
         <state line="9" column="124" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="374" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="52" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.68045115" vertical-offset="743" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="1" selection-start="1757" selection-end="1757" vertical-scroll-proportion="0.7763158" vertical-offset="539" max-vertical-offset="1071">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Role.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.8155515" vertical-offset="93" max-vertical-offset="646">
-          <folding />
-        </state>
+        <state line="69" column="52" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.68045115" vertical-offset="743" max-vertical-offset="1275" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_09_30_184249_add_monto_factura_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="47" selection-start="777" selection-end="881" vertical-scroll-proportion="0.53887886" vertical-offset="297" max-vertical-offset="850">
-          <folding />
-        </state>
+        <state line="37" column="47" selection-start="777" selection-end="881" vertical-scroll-proportion="0.53887886" vertical-offset="297" max-vertical-offset="850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/obra/factura/detalle/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="67" selection-start="2984" selection-end="2984" vertical-scroll-proportion="0.85555553" vertical-offset="847" max-vertical-offset="1445">
+        <state line="77" column="67" selection-start="2984" selection-end="2984" vertical-scroll-proportion="0.85555553" vertical-offset="847" max-vertical-offset="1445" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/obra/factura/detalle/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="65" selection-start="5416" selection-end="5416" vertical-scroll-proportion="0.70520234" vertical-offset="1504" max-vertical-offset="2040" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/obra/preciounitario/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="61" selection-start="2186" selection-end="2186" vertical-scroll-proportion="0.7233273" vertical-offset="892" max-vertical-offset="1445" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/obra/presupuesto/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="65" selection-start="3828" selection-end="3828" vertical-scroll-proportion="0.74814814" vertical-offset="1024" max-vertical-offset="1564" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/obra/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="422" selection-end="422" vertical-scroll-proportion="0.6148282" vertical-offset="0" max-vertical-offset="553" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/producto/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="579" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/obra/comparar/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="61" selection-start="1846" selection-end="1846" vertical-scroll-proportion="-17.692308" vertical-offset="900" max-vertical-offset="1479" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/proveedores/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="65" selection-start="5621" selection-end="5621" vertical-scroll-proportion="1.2465374" vertical-offset="1607" max-vertical-offset="2210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_09_29_172907_create_personals_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.7949367" vertical-offset="314" max-vertical-offset="867" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/obra/nombrepu/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="65" selection-start="3993" selection-end="3993" vertical-scroll-proportion="3.382134" vertical-offset="524" max-vertical-offset="2006" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/personal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="42" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="519" max-vertical-offset="2703" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/personal/ver.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="12" selection-start="66" selection-end="66" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="2040" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/obra/personal/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.043037973" vertical-offset="0" max-vertical-offset="561" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PersonalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="40" selection-start="2368" selection-end="2368" vertical-scroll-proportion="3.4326923" vertical-offset="0" max-vertical-offset="1666" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/personal/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="12" selection-start="66" selection-end="66" vertical-scroll-proportion="0.12655087" vertical-offset="0" max-vertical-offset="4369" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Personal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="124" selection-start="375" selection-end="375" vertical-scroll-proportion="0.46401986" vertical-offset="0" max-vertical-offset="403">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_23_153139_add_userid_detalle_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="31" selection-start="315" selection-end="315" vertical-scroll-proportion="0.59090906" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_23_120833_add_userid_factura_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="643" selection-end="643" vertical-scroll-proportion="0.95696205" vertical-offset="200" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_22_120908_add_estado_personal_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="292" selection-end="762" vertical-scroll-proportion="0.9670886" vertical-offset="196" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FacturaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="118" selection-end="154" vertical-scroll-proportion="0.32692307" vertical-offset="0" max-vertical-offset="2091">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DetalleFacturaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="10" selection-start="4697" selection-end="4697" vertical-scroll-proportion="5.3018517" vertical-offset="78" max-vertical-offset="3162">
-          <folding>
-            <element signature="e#40#63#0" expanded="false" />
-          </folding>
+        <state line="8" column="36" selection-start="126" selection-end="126" vertical-scroll-proportion="0.33746898" vertical-offset="0" max-vertical-offset="3213">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/obra/factura/detalle/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="65" selection-start="2069" selection-end="2069" vertical-scroll-proportion="0.7379576" vertical-offset="586" max-vertical-offset="1122">
+        <state line="57" column="65" selection-start="2069" selection-end="2069" vertical-scroll-proportion="0.7965261" vertical-offset="648" max-vertical-offset="1122">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/obra/factura/detalle/show.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/DetalleFactura.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="65" selection-start="5416" selection-end="5416" vertical-scroll-proportion="0.70520234" vertical-offset="1504" max-vertical-offset="2040">
+        <state line="10" column="104" selection-start="246" selection-end="246" vertical-scroll-proportion="0.19471154" vertical-offset="89" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/obra/preciounitario/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Factura.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="61" selection-start="2186" selection-end="2186" vertical-scroll-proportion="0.7233273" vertical-offset="892" max-vertical-offset="1445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/obra/presupuesto/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="65" selection-start="3828" selection-end="3828" vertical-scroll-proportion="0.74814814" vertical-offset="1024" max-vertical-offset="1564">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/obra/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="422" selection-end="422" vertical-scroll-proportion="0.6148282" vertical-offset="0" max-vertical-offset="553">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/producto/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="579">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/obra/comparar/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="61" selection-start="1846" selection-end="1846" vertical-scroll-proportion="-17.692308" vertical-offset="900" max-vertical-offset="1479">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/obra/factura/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="146" selection-start="8859" selection-end="8966" vertical-scroll-proportion="0.42058823" vertical-offset="2696" max-vertical-offset="3774">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/proveedores/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="65" selection-start="5621" selection-end="5621" vertical-scroll-proportion="1.2465374" vertical-offset="1607" max-vertical-offset="2210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_09_29_172907_create_personals_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.7949367" vertical-offset="314" max-vertical-offset="867">
+        <state line="18" column="129" selection-start="421" selection-end="421" vertical-scroll-proportion="0.6873449" vertical-offset="29" max-vertical-offset="663">
           <folding />
         </state>
       </provider>
@@ -592,74 +809,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/obra/nombrepu/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_18_200319_add_role_user_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="65" selection-start="3993" selection-end="3993" vertical-scroll-proportion="3.382134" vertical-offset="524" max-vertical-offset="2006">
+        <state line="20" column="5" selection-start="430" selection-end="430" vertical-scroll-proportion="-9.076923" vertical-offset="70" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/personal.js">
+    <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="42" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="519" max-vertical-offset="2703">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.3846154" vertical-offset="166" max-vertical-offset="1173">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="65" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.5052356" vertical-offset="504" max-vertical-offset="1717">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.28101265" vertical-offset="111" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="346" selection-end="346" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="578">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="6" selection-start="1819" selection-end="1819" vertical-scroll-proportion="-9.961538" vertical-offset="693" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/SessionTimeout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="91" selection-start="873" selection-end="873" vertical-scroll-proportion="-6.5384617" vertical-offset="255" max-vertical-offset="697">
+          <folding>
+            <element signature="e#37#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="20" selection-start="164" selection-end="164" vertical-scroll-proportion="3.7692308" vertical-offset="302" max-vertical-offset="697">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/obra/obra/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="53" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.55497384" vertical-offset="417" max-vertical-offset="2278">
+        <state line="14" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="2295">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/personal/ver.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/obra/factura/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="66" selection-end="66" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="2040">
+        <state line="15" column="132" selection-start="538" selection-end="538" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="3808">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/obra/personal/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.043037973" vertical-offset="0" max-vertical-offset="561">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PersonalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="40" selection-start="2368" selection-end="2368" vertical-scroll-proportion="3.4326923" vertical-offset="0" max-vertical-offset="1666">
-          <folding>
-            <element signature="e#40#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/personal/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="66" selection-end="66" vertical-scroll-proportion="0.12655087" vertical-offset="0" max-vertical-offset="4369">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_22_120908_add_estado_personal_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="32" selection-start="624" selection-end="624" vertical-scroll-proportion="-11.269231" vertical-offset="183" max-vertical-offset="680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_18_200319_add_role_user_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="28" selection-start="555" selection-end="555" vertical-scroll-proportion="0.66346157" vertical-offset="183" max-vertical-offset="646">
+        <state line="75" column="61" selection-start="2881" selection-end="2881" vertical-scroll-proportion="0.18062827" vertical-offset="1053" max-vertical-offset="1768">
           <folding />
         </state>
       </provider>

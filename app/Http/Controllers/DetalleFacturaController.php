@@ -6,6 +6,7 @@ use App\DetalleFactura;
 use App\Factura;
 use DB;
 
+use Illuminate\Support\Facades\Auth;
 use App\NombrePU;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -54,6 +55,7 @@ $obradetalle=$request->factura_fk;
             ->get()->last();
 
         $detalle= new DetalleFactura($request->all());
+        $detalle->user_fk= Auth::id();
         $detalle->save();
 
 
@@ -111,6 +113,7 @@ $obradetalle=$request->factura_fk;
                     $detalle->detalle=$fila->detalle;
                     $detalle->unidad= $fila->unidad;
                     $detalle->factura_fk=$factura;
+
                     $detalle->save();
 
 

@@ -9,5 +9,5 @@ class Personal extends Model
     protected $table='personals';
 
     protected $fillable=['nombre', 'apellidos', 'rut' ,'nacionalidad', 'estado_civil','fecha_nac','direccion', 'comuna',
-    'telefono', 'prevision', 'afp', 'fecha_ingreso', 'faena_termino', 'sueldo_liquido', 'calzado', 'cargo'];
+    'telefono', 'prevision', 'afp', 'fecha_ingreso', 'faena_termino', 'sueldo_liquido', 'calzado', 'cargo','obra_fk','estado'];
 }

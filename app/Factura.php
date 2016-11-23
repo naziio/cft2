@@ -16,7 +16,7 @@ class Factura extends Model
      * @var array
      */
     protected $fillable = ['razon_social','subtotal','recargo','obra_fk',
-        'num_factura', 'monto_exento', 'descuentos','impuesto_especifico', 'neto', 'iva', 'total_concepto','observacion'
+        'num_factura', 'monto_exento', 'descuentos','impuesto_especifico', 'neto', 'iva', 'total_concepto','observacion','user_fk'
     ];
 
     /**

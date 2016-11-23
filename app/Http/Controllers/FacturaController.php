@@ -6,6 +6,7 @@ use App\DetalleFactura;
 use App\Factura;
 use App\NombrePU;
 use App\Proveedor;
+use Illuminate\Support\Facades\Auth;
 
 //use App\Personal;
 use Illuminate\Http\Request;
@@ -51,6 +52,8 @@ class FacturaController extends Controller
     {
 
         $factura= new Factura($request->all());
+        $factura->user_fk= Auth::id();
+        //dd($factura);
         $factura->save();
 
         //var_dump($factura);

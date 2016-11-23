@@ -9,7 +9,8 @@ class Role
 
     protected $hierarchy = [
         'admin'  => 2,
-        'user'   => 1
+        'editor'   => 1,
+        'user'   =>0
     ];
 
     /**
@@ -21,7 +22,9 @@ class Role
      */
     public function handle($request, Closure $next, $role)
     {
+
         $user = auth()->user();
+
 
         if ($this->hierarchy[$user->role] < $this->hierarchy[$role]) {
             abort(404);

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRoleUserTable extends Migration
+class AddUseridDetalleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddRoleUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('detalle_factura', function (Blueprint $table) {
 
 
-            $table->enum('role', ['user','admin','obra'])->nullable();
+            $table->integer('user_fk');
+
         });
     }
 
@@ -27,8 +28,9 @@ class AddRoleUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
-    });
+        Schema::table('detalle_factura', function (Blueprint $table) {
+            $table->dropColumn('user_fk');
+
+        });
     }
 }

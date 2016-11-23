@@ -12,6 +12,7 @@ Obras
     <div class="container-narrow">
         <h2>Registro de OBRAS</h2>
         <button id="btn-add" name="btn-add" class="btn btn-primary">Agregar OBRA</button>
+
         <div>
 
             <!-- Table-to-load-the-data Part -->

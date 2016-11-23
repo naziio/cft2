@@ -10,6 +10,8 @@ return array(
     'AddFechaObraTable' => $baseDir . '/database/migrations/2016_09_29_153049_add_fecha_obra_table.php',
     'AddMontoFacturaTable' => $baseDir . '/database/migrations/2016_09_30_184249_add_monto_factura_table.php',
     'AddRoleUserTable' => $baseDir . '/database/migrations/2016_11_18_200319_add_role_user_table.php',
+    'AddUseridDetalleTable' => $baseDir . '/database/migrations/2016_11_23_153139_add_userid_detalle_table.php',
+    'AddUseridFacturaTable' => $baseDir . '/database/migrations/2016_11_23_120833_add_userid_factura_table.php',
     'CreateNombrePUTable' => $baseDir . '/database/migrations/2016_10_07_182653_create_NombrePU_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePersonalsTable' => $baseDir . '/database/migrations/2016_09_29_172907_create_personals_table.php',

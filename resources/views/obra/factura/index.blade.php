@@ -13,6 +13,8 @@ Facturas
     <div class="container-narrow">
         <h2>Ingreso de factura</h2>
         <button id="btn-add" name="btn-add" class="btn btn-primary">Agregar FACTURA</button>
+        <a href="{{ url('proveedor')}}"><button id="btn-add2" name="btn-add2" class="btn btn-primary">Agregar PROVEEDOR</button></a>
+
         <div>
 
             <!-- Table-to-load-the-data Part -->
