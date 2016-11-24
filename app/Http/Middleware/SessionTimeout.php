@@ -23,7 +23,7 @@ class SessionTimeout {
         elseif(time() - $this->session->get('lastActivityTime') > $this->getTimeOut()){
             $this->session->forget('lastActivityTime');
             Auth::logout();
-            return redirect('auth/login')->withErrors(['No has tenido actividad en 1 minuto']);
+            return redirect('login')->withErrors(['No has tenido actividad en 1 minuto']);
         }
         $this->session->put('lastActivityTime',time());
         return $next($request);

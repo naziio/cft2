@@ -54,8 +54,8 @@ detalle
                     <td>{{$detalles->id}}</td>
                     <td>{{$detalles->nombrepu}}</td>
                     <td>{{$detalles->cantidad}}</td>
-                    <td>{{$detalles->precio_unitario}}</td>
-                    <td>{{$detalles->total}}</td>
+                    <td>{{number_format($detalles->precio_unitario)}}</td>
+                    <td>{{number_format($detalles->total)}}</td>
                     <td>{{$detalles->created_at}}</td>
                     <td>
                         <a href="#"><button  class="btn btn-warning btn-xs " value="{{$detalles->id}}">Ver</button></a>

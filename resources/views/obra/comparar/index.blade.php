@@ -33,16 +33,16 @@ Comparar
         <td>{{$nombrepus->nombrepu}}</td>
         @endif
     <td>{{$nombrepus->cantidad1}}</td>
-    <td>{{$nombrepus->preciounitario}}</td>
-    <td class="info">{{$nombrepus->total1}}</td>
+    <td>{{number_format($nombrepus->preciounitario)}}</td>
+    <td class="info">{{number_format($nombrepus->total1)}}</td>
 
 
-        <td>{{$nombrepus->precio_unitario}}</td>
+        <td>{{number_format($nombrepus->precio_unitario)}}</td>
         <td>{{$nombrepus->cantidad}}</td>
         @if($nombrepus->total1<$nombrepus->total)
-        <td class="danger">{{$nombrepus->total}}</td>
+        <td class="danger">{{number_format($nombrepus->total)}}</td>
         @else
-        <td class="success">{{$nombrepus->total}}</td>
+        <td class="success">{{number_format($nombrepus->total)}}</td>
         @endif
 
 

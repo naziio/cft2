@@ -33,12 +33,13 @@ $('#table').DataTable({
 
 */
 //Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware' => 'role:user'], function(){
+
 Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+  //  Route::auth();
     Route::get('/admin', 'HomeController@index');
 
     Auth::routes();
-
+    Route::group(['middleware' => 'auth'], function () {
     Route::get('obra/comparar/index1/{facturas}','DetalleFacturaController@index1')->middleware('role:admin');
 
     Route::get('/home', 'HomeController@index');
@@ -53,7 +54,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('personal/ver/{obras}', 'PersonalController@ver');//->middleware('role:admin');
 
-    Route::get('obra/factura/index/{obras}', 'FacturaController@index')->middleware('tiempo'); //en desarrollo
+    Route::get('obra/factura/index/{obras}', 'FacturaController@index')->middleware('role:user,editor,admin'); //en desarrollo
 
     Route::post('obra/factura/index/{obras}','FacturaController@store');//->middleware('role:admin,user,editor');
 
@@ -100,7 +101,7 @@ Route::group(['middleware' => 'web'], function () {
         return view('obra.index');
     });
 
-
+    });
 
 
 });

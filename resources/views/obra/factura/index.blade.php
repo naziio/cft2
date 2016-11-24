@@ -44,14 +44,14 @@ Facturas
                     <td>{{$facturas->id}}</td>
                     <td>{{$facturas->razon_social}}</td>
                     <td>{{$facturas->num_factura}}</td>
-                    <td>{{$facturas->subtotal}}</td>
-                    <td>{{$facturas->recargo}}</td>
-                    <td>{{$facturas->monto_exento}}</td>
-                    <td>{{$facturas->descuentos}}</td>
-                    <td>{{$facturas->impuesto_especifico}}</td>
-                    <td>{{$facturas->neto}}</td>
-                    <td>{{$facturas->iva}}</td>
-                    <td>{{$facturas->total_concepto}}</td>
+                    <td>{{number_format($facturas->subtotal)}}</td>
+                    <td>{{number_format($facturas->recargo)}}</td>
+                    <td>{{number_format($facturas->monto_exento)}}</td>
+                    <td>{{number_format($facturas->descuentos)}}</td>
+                    <td>{{number_format($facturas->impuesto_especifico)}}</td>
+                    <td>{{number_format($facturas->neto)}}</td>
+                    <td>{{number_format($facturas->iva)}}</td>
+                    <td>{{number_format($facturas->total_concepto)}}</td>
                     <td>{{$facturas->observacion}}</td>
                     <td>{{$facturas->created_at}}</td>
                     <td>

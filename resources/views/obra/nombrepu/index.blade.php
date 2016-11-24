@@ -69,9 +69,9 @@ Detalle de presupuesto
                     <td>{{$nombrepus->nombrepu}}</td>
                     @endif
                     <td>{{$nombrepus->unidad}}</td>
-                    <td>{{$nombrepus->cantidad}}</td>
-                    <td>{{$nombrepus->preciounitario}}</td>
-                    <td>{{$nombrepus->total}}</td>
+                    <td>{{number_format($nombrepus->cantidad)}}</td>
+                    <td>{{number_format($nombrepus->preciounitario)}}</td>
+                    <td>{{ number_format($nombrepus->total)}}</td>
 
 
 
