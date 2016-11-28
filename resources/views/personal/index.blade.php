@@ -38,6 +38,7 @@ Personal CFT
                     <th>Cargo</th>
                     <th>Obra</th>
                     <th>Estado</th>
+                    <th></th>
 
                 </tr>
                 </thead>
@@ -94,6 +95,7 @@ Personal CFT
                     <th>Cargo</th>
                     <th>Obra</th>
                     <th>Estado</th>
+                    <th></th>
 
                 </tr>
                 </tfoot>

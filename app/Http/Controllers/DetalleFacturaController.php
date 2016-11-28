@@ -160,11 +160,16 @@ $obradetalle=$request->factura_fk;
 
       // $nombrepu=NombrePU::where('presupuesto_fk', $obra)
        //                 ->get();
+
+
        $nombrepu = DB::table('nombrepu')
-            ->join('detalle_factura', 'nombrepu.nombrepu', '=', 'detalle_factura.nombrepu')
-            ->select('nombrepu.nombrepu','nombrepu.cantidad as cantidad1','nombrepu.preciounitario','nombrepu.total as total1','detalle_factura.*')
-            ->where('detalle_factura.factura_fk',$factura)
-            ->get();
+            ->join('factura', 'nombrepu.nombrepu', '=', 'factura.observacion')
+            //->sum('factura.subtotal')
+            ->select('nombrepu.id','nombrepu.nombrepu', 'nombrepu.cantidad as cantidad1', 'nombrepu.preciounitario', 'nombrepu.total as total1', DB::raw('SUM(factura.subtotal) as subtotal'), DB::raw('SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva)as iva') )
+           // ->where('detalle_factura.factura_fk',$factura)
+           //DB::raw( 'SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva) as iva')
+           ->groupby('nombrepu.nombrepu', 'cantidad1', 'nombrepu.preciounitario', 'total1', 'subtotal','nombrepu.id')
+           ->get();
         //dd($nombrepu);
         //$detalle=DetalleFactura::where('factura_fk',$factura)
          //   ->get();

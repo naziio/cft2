@@ -102,6 +102,7 @@ Proveedores
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" id="btn-save" value="add">Guardar cambios</button>
                             <input type="hidden" id="proveedor_id" name="proveedor_id" value="0">
+
                         </div>
                     </div>
                 </div>

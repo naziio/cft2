@@ -17,8 +17,8 @@ Comparar
         <th>Cantidad</th>
         <th>Precio Unitario</th>
         <th>Total.</th>
-        <th>PUF</th>
-        <th>Cantidad</th>
+        <th>Neto</th>
+        <th>IVA</th>
         <th>TotalF</th>
 
     </tr>
@@ -27,7 +27,7 @@ Comparar
     <tr>
     @foreach($nombrepu as $nombrepus)
         <td>{{$nombrepus->id}}</td>
-    @if($nombrepus->cantidad == '')
+    @if($nombrepus->cantidad1 == '')
     <th>{{$nombrepus->nombrepu}}</th>
         @else
         <td>{{$nombrepus->nombrepu}}</td>
@@ -37,12 +37,12 @@ Comparar
     <td class="info">{{number_format($nombrepus->total1)}}</td>
 
 
-        <td>{{number_format($nombrepus->precio_unitario)}}</td>
-        <td>{{$nombrepus->cantidad}}</td>
-        @if($nombrepus->total1<$nombrepus->total)
-        <td class="danger">{{number_format($nombrepus->total)}}</td>
+        <td>{{number_format($nombrepus->neto)}}</td>
+        <td>{{number_format($nombrepus->iva)}}</td>
+        @if($nombrepus->total1<$nombrepus->subtotal)
+        <td class="danger">{{number_format($nombrepus->subtotal)}}</td>
         @else
-        <td class="success">{{number_format($nombrepus->total)}}</td>
+        <td class="success">{{number_format($nombrepus->subtotal)}}</td>
         @endif
 
 
@@ -60,8 +60,8 @@ Comparar
         <th>Cantidad</th>
         <th>Precio Unitario</th>
         <th>Total.</th>
-        <th>PUF</th>
-        <th>Cantidad</th>
+        <th>Neto</th>
+        <th>IVA</th>
         <th>TotalF</th>
 
     </tr>

@@ -12,7 +12,7 @@ Obras
           <div>
 
               <div>
-                  <p>Ver FACTURAS</p> <a href="{{ url('obra/factura/index', [$obra->id]) }}"><button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$obras->id}}">Editar</button></a>
+                  <p>Ver FACTURAS</p> <a href="{{ url('obra/factura/index', [$obra->id]) }}"><button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$obra->id}}">Editar</button></a>
               </div>
             <!-- Table-to-load-the-data Part -->
             <table class="table">

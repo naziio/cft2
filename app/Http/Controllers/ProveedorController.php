@@ -120,7 +120,7 @@ class ProveedorController extends Controller
     public function destroy($proveedor_id)
     {
         $proveedor= Proveedor::destroy($proveedor_id);
-
         return Response::json($proveedor);
     }
+
 }

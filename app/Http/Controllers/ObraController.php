@@ -54,7 +54,9 @@ class ObraController extends Controller
     public function show($obra_id)
     {
         $obra = Obra::find($obra_id);
-        return view('obra.obra.show',compact('obra'));
+        return Response::json($obra);
+      //  $obra = Obra::find($obra_id);
+      //  return view('obra.obra.show',compact('obra'));
     }
 
     /**
@@ -66,7 +68,6 @@ class ObraController extends Controller
     public function edit($obra_id)
     {
         $obra= Obra::find($obra_id);
-
         return Response::json($obra);
     }
 

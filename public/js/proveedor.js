@@ -7,7 +7,6 @@ $.ajaxSetup({
     }
 
 })
-
 $(document).ready(function(){
 
     var url = "proveedor";
@@ -41,13 +40,20 @@ $(document).ready(function(){
 
     //delete proveedor and remove it from list
     $('#proveedor-list').on('click', '.delete-proveedor',function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
         var proveedor_id = $(this).val();
 
         $.ajax({
 
+
             type: "DELETE",
             url: url + '/' + proveedor_id,
             success: function (data) {
+                window.location.reload();
                 console.log(data);
 
                 $("#proveedor" + proveedor_id).remove();

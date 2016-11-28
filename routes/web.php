@@ -34,67 +34,58 @@ $('#table').DataTable({
 */
 //Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware' => 'role:user'], function(){
 
-Route::group(['middleware' => 'web'], function () {
-  //  Route::auth();
-    Route::get('/admin', 'HomeController@index');
 
-    Auth::routes();
-    Route::group(['middleware' => 'auth'], function () {
-    Route::get('obra/comparar/index1/{facturas}','DetalleFacturaController@index1')->middleware('role:admin');
 
-    Route::get('/home', 'HomeController@index');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/home', 'HomeController@index');
 
-    Route::get('panel/index', 'HomeController@admin')->middleware('role:admin,user,editor');
 
+Route::group(['middleware' => 'auth'], function () {
+
+         Route::group(['middleware' => 'role:admin,user,editor'], function () {
+
+             Route::get('obra/factura/index/{obras}', 'FacturaController@index');
+
+             Route::post('obra/factura/index/{obras}','FacturaController@store');
+
+             Route::get('obra/factura/detalle/index/{facturas}',  ['as' => 'detalle/index', 'uses' =>'DetalleFacturaController@index']);
+
+             Route::get('obra/factura/detalle/create/{factura}', 'DetalleFacturaController@create');
+
+             Route::post('obra/factura/detalle/create', ['as'=> 'detalle/store', 'uses' => 'DetalleFacturaController@store']);
+
+         });
     Route::resource('proveedor','ProveedorController');
 
+    Route::group(['middleware' => 'role:admin'], function () {
+
+    Route::get('obra/comparar/index1/{facturas}','DetalleFacturaController@index1');
     Route::resource('obra/obra','ObraController');
 
     Route::resource('personal', 'PersonalController');
 
-    Route::get('personal/ver/{obras}', 'PersonalController@ver');//->middleware('role:admin');
 
-    Route::get('obra/factura/index/{obras}', 'FacturaController@index')->middleware('role:user,editor,admin'); //en desarrollo
+     Route::get('obra/preciounitario/index/{nombrepus}', 'PrecioUnitarioController@index');
+     Route::get('cargar/{nombrepus}', ['as' => 'cargar','uses' => 'PrecioUnitarioController@cargar'] );
 
-    Route::post('obra/factura/index/{obras}','FacturaController@store');//->middleware('role:admin,user,editor');
+     Route::post('cargar/cargar_datos', 'PrecioUnitarioController@cargar_datos' );
 
-   // Route::resource('obra/factura', 'FacturaController');
-
-
-
-    //Route::resource('obra/preciounitario', 'PrecioUnitarioController');
-
-    Route::get('obra/preciounitario/index/{nombrepus}', 'PrecioUnitarioController@index')->middleware('role:admin');
-    Route::get('cargar/{nombrepus}', ['as' => 'cargar','uses' => 'PrecioUnitarioController@cargar'] )->middleware('role:admin');
-
-    Route::post('cargar/cargar_datos', 'PrecioUnitarioController@cargar_datos' )->middleware('role:admin');
-
-    Route::post('obra/nombrepu/index/cargar_datos2', ['as' => 'nombrepu/cargar_datos2', 'uses'=>'NombrePUController@cargar_datos2'] )->middleware('role:admin');
-
-    Route::get('obra/nombrepu/index/cargar_datos2', ['as' => 'nombrepu/cargar_datos2', 'uses'=>'NombrePUController@cargar_datos2'] )->middleware('role:admin');
+     Route::post('obra/nombrepu/index/cargar_datos2', ['as' => 'nombrepu/cargar_datos2', 'uses'=>'NombrePUController@cargar_datos2'] );
 
 
-    Route::resource('presupuesto','PresupuestoController');//->middleware('role:admin');
-
-//Route::resource('obra/nombrepu','NombrePUController');
-
-    Route::get('obra/nombrepu/index/{presupuestos}',['as' => 'nombrepu', 'uses' => 'NombrePUController@index'])->middleware('role:admin');
-
-  //  Route::get('obra/factura/detalle/show/{facturas}', 'DetalleFacturaController@index');
+    Route::get('obra/nombrepu/index/cargar_datos2', ['as' => 'nombrepu/cargar_datos2', 'uses'=>'NombrePUController@cargar_datos2'] );
 
 
+    Route::resource('presupuesto','PresupuestoController');
+        Route::get('obra/nombrepu/index/{presupuestos}',['as' => 'nombrepu', 'uses' => 'NombrePUController@index']);
+        Route::get('obra/comparar/index/{facturas}', ['as' => 'comparar/index', 'uses'=> 'DetalleFacturaController@index1']);
 
+    });
 
-
-    Route::get('obra/factura/detalle/index/{facturas}',  ['as' => 'detalle/index', 'uses' =>'DetalleFacturaController@index']);
-
-    Route::get('obra/factura/detalle/create/{factura}', 'DetalleFacturaController@create');
-
-    Route::post('obra/factura/detalle/create', ['as'=> 'detalle/store', 'uses' => 'DetalleFacturaController@store']);
+    Route::get('personal/ver/{obras}', 'PersonalController@ver')->middleware('role:admin,user');
 
     //Route::post('obra/factura/detalle/index','DetalleFacturaController@store' );
 
-    Route::get('obra/comparar/index/{facturas}', ['as' => 'comparar/index', 'uses'=> 'DetalleFacturaController@index1'])->middleware('role:admin');
 
     Route::get('obra/index', function()
     {
@@ -103,6 +94,4 @@ Route::group(['middleware' => 'web'], function () {
 
     });
 
-
-});
-
+Auth::routes();

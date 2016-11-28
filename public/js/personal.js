@@ -102,7 +102,7 @@ $(document).ready(function(){
        sueldo_liquido: $('#sueldo_liquido').val(),
        calzado: $('#calzado').val(),
        cargo: $('#cargo').val(),
-       obra: $('#obra_fk').val(),
+       obra_fk: $('#obra_fk').val(),
        estado: $('#estado').val()
 
         }

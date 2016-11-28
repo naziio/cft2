@@ -32,7 +32,7 @@ Obras
                 @foreach ($obra as $obras)
                 <tr id="obra{{$obras->id}}">
                     <td>{{$obras->id}}</td>
-                    <td>{{$obras->name}} <a href="{{ url('obra/factura/index', $obras->id)}}"><button  class="btn btn-primary btn-xs btn-detail" value="{{$obras->id}}">VER</button></a></td>
+                    <td>{{$obras->name}} <a href="{{ url('obra/factura/index', $obras->id)}}"><button  class="btn btn-primary btn-xs btn-detail" value="{{$obras->id}}">FACTURAS</button></a></td>
                     <td>{{$obras->direccion}}</td>
                     <td>{{$obras->telefono}}</td>
                     <td>{{$obras->fecha}}</td>
