@@ -54,6 +54,8 @@ Route::group(['middleware' => 'auth'], function () {
 
              Route::post('obra/factura/detalle/create', ['as'=> 'detalle/store', 'uses' => 'DetalleFacturaController@store']);
 
+             Route::resource('obra/factura/index', 'FacturaController');
+
          });
     Route::resource('proveedor','ProveedorController');
 
@@ -77,6 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::resource('presupuesto','PresupuestoController');
+
         Route::get('obra/nombrepu/index/{presupuestos}',['as' => 'nombrepu', 'uses' => 'NombrePUController@index']);
         Route::get('obra/comparar/index/{facturas}', ['as' => 'comparar/index', 'uses'=> 'DetalleFacturaController@index1']);
 

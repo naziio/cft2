@@ -98,8 +98,9 @@ class ObraController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($obra_id,Request $request)
+    public function destroy($obra_id)
     {
-
+        $obra= Obra::destroy($obra_id);
+        return Response::json($obra);
     }
 }

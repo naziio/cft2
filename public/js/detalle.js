@@ -29,6 +29,7 @@ $(document).ready(function(){
            $('#factura_fk').val(data.factura_fk);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
+
         })
     });
 
@@ -43,19 +44,40 @@ $(document).ready(function(){
     $('#detalle-list').on('click', '.delete-detalle',function(){
         var detalle_id = $(this).val();
 
-        $.ajax({
-
-            type: "DELETE",
-            url: url + '/' + detalle_id,
-            success: function (data) {
-                console.log(data);
-
-                $("#detalle" + detalle_id).remove();
+        event.preventDefault();
+        swal({
+                title: "Estas seguro?",
+                text: "Se eliminara permanentemente de la base de datos!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "SI, borrar!",
+                cancelButtonText: "NO, cancelar!",
+                closeOnConfirm: true,
+                closeOnCancel: false
             },
-            error: function (data) {
-                console.log('Error:', data);
-            }
-        });
+            function(isConfirm){
+                if (isConfirm) {
+                    swal("Borrado!", "Fue borrado exitosamente.", "success");
+                    $.ajax({
+
+                        type: "DELETE",
+                        url: url + '/' + detalle_id,
+                        success: function (data) {
+
+                            console.log(data);
+
+                            $("#detalle" + detalle_id).remove();
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            console.log('Error:', data);
+                        }
+                    });
+                } else {
+                    swal("Cancelado", "El texto no fue borrado :)", "error");
+                }
+            });
     });
 
     //create new detalle / update existing detalle
@@ -115,6 +137,7 @@ $(document).ready(function(){
                 $('#frmdetalle').trigger("reset");
 
                 $('#myModal').modal('hide')
+                window.location.reload();
             },
             error: function (data) {
                 console.log('Error:', data);

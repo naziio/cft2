@@ -36,7 +36,6 @@ Comparar
     <td>{{number_format($nombrepus->preciounitario)}}</td>
     <td class="info">{{number_format($nombrepus->total1)}}</td>
 
-
         <td>{{number_format($nombrepus->neto)}}</td>
         <td>{{number_format($nombrepus->iva)}}</td>
         @if($nombrepus->total1<$nombrepus->subtotal)
@@ -44,9 +43,6 @@ Comparar
         @else
         <td class="success">{{number_format($nombrepus->subtotal)}}</td>
         @endif
-
-
-
 
 
     </tr>
@@ -70,6 +66,7 @@ Comparar
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 
 
 <script>

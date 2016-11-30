@@ -27,6 +27,7 @@ $(document).ready(function(){
             $('#btn-save').val("update");
             $('#myModal').modal('show');
 
+
         })
 
     });
@@ -47,21 +48,40 @@ $(document).ready(function(){
         })
         var proveedor_id = $(this).val();
 
-        $.ajax({
-
-
-            type: "DELETE",
-            url: url + '/' + proveedor_id,
-            success: function (data) {
-                window.location.reload();
-                console.log(data);
-
-                $("#proveedor" + proveedor_id).remove();
+        event.preventDefault();
+        swal({
+                title: "Estas seguro?",
+                text: "Se eliminara permanentemente de la base de datos!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "SI, borrar!",
+                cancelButtonText: "NO, cancelar!",
+                closeOnConfirm: true,
+                closeOnCancel: false
             },
-            error: function (data) {
-                console.log('Error:', data);
-            }
-        });
+            function(isConfirm){
+                if (isConfirm) {
+                    swal("Borrado!", "Fue borrado exitosamente.", "success");
+                    $.ajax({
+
+                        type: "DELETE",
+                        url: url + '/' + proveedor_id,
+                        success: function (data) {
+
+                            console.log(data);
+
+                            $("#proveedor" + proveedor_id).remove();
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            console.log('Error:', data);
+                        }
+                    });
+                } else {
+                    swal("Cancelado", "El texto no fue borrado :)", "error");
+                }
+            });
     });
 
     //create new proveedor / update existing proveedor
@@ -119,6 +139,7 @@ $(document).ready(function(){
                 $('#frmproveedor').trigger("reset");
 
                 $('#myModal').modal('hide')
+                window.location.reload();
             },
             error: function (data) {
                 console.log('Error:', data);

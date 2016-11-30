@@ -45,6 +45,7 @@ $(document).ready(function(){
             $('#btn-save').val("update");
             $('#myModal').modal('show');
 
+
         })
 
     });
@@ -58,21 +59,47 @@ $(document).ready(function(){
 
     //delete personal and remove it from list
     $('#personal-list').on('click', '.delete-personal',function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
         var personal_id = $(this).val();
 
-        $.ajax({
-
-            type: "DELETE",
-            url: url + '/' + personal_id,
-            success: function (data) {
-                console.log(data);
-
-                $("#personal" + personal_id).remove();
+        event.preventDefault();
+        swal({
+                title: "Estas seguro?",
+                text: "Se eliminara permanentemente de la base de datos!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "SI, borrar!",
+                cancelButtonText: "NO, cancelar!",
+                closeOnConfirm: true,
+                closeOnCancel: false
             },
-            error: function (data) {
-                console.log('Error:', data);
-            }
-        });
+            function(isConfirm){
+                if (isConfirm) {
+                    swal("Borrado!", "Fue borrado exitosamente.", "success");
+                    $.ajax({
+
+                        type: "DELETE",
+                        url: url + '/' + personal_id,
+                        success: function (data) {
+
+                            console.log(data);
+
+                            $("#personal" + personal_id).remove();
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            console.log('Error:', data);
+                        }
+                    });
+                } else {
+                    swal("Cancelado", "El texto no fue borrado :)", "error");
+                }
+            });
     });
 
     //create new personal / update existing personal
@@ -144,6 +171,7 @@ $(document).ready(function(){
                 $('#frmpersonal').trigger("reset");
 
                 $('#myModal').modal('hide')
+                window.location.reload();
             },
             error: function (data) {
                 console.log('Error:', data);

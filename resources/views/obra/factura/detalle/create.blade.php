@@ -18,7 +18,7 @@ Detalle
         <div class="form-group">
             <label for="nombrepu" class="col-sm-3 control-label">Descripcion</label>
             <div class="col-sm-9">
-                {!! Form::select('nombrepu', $nombrepu,$selected,['class' => 'form-control', 'id'=> 'nombrepu']) !!}
+                <input type="text" class="form-control " id="nombrepu" name="nombrepu">
             </div>
         </div>
 

@@ -7,6 +7,7 @@ Obras
 
 @section('main-content')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<link href="css/sweetalert.css" rel="stylesheet">
 
 <div class="container">
     <div class="container-narrow">
@@ -116,6 +117,7 @@ Obras
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{asset('js/obra.js')}}"></script>
+    <script src="{{asset('js/sweetalert.min.js')}}"></script>
 
     </body>
 

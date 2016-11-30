@@ -7,7 +7,7 @@ Presupuesto
 
 @section('main-content')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-
+<link href="css/sweetalert.css" rel="stylesheet">
 <div class="container">
     <div class="container-narrow">
         <h2>Presupuesto</h2>
@@ -24,16 +24,16 @@ Presupuesto
                     <th>Detalle</th>
                 </tr>
                 </thead>
-                <tbody >
+                <tbody id="presupuesto-list" name="presupuesto-list">
                 @foreach ($presupuesto as $presupuestos)
                 <tr id="presupuesto{{$presupuestos->id}}">
                     <td>{{$presupuestos->id}}</td>
                     <td>{{$presupuestos->nombrepresupuesto}}</td>
                     <td>
 
-                        <a href="{{ route('nombrepu', [$presupuestos->id]) }}"> <button  class="btn btn-warning btn-xs btn-detail" value="{{$presupuestos->id}}">VER</button></a>
+                        <a href="{{ route('nombrepu', [$presupuestos->id]) }}"> <button  class="btn btn-warning btn-xs btn-detail">VER</button></a>
                         <button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$presupuestos->id}}">Editar</button>
-                        <button class="btn btn-danger btn-xs btn-delete delete-obra" value="{{$presupuestos->id}}" >Eliminar</button>
+                        <button class="btn btn-danger btn-xs btn-delete delete-presupuesto" value="{{$presupuestos->id}}" >Eliminar</button>
 
 
                     </td>
@@ -76,10 +76,12 @@ Presupuesto
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="{{asset('js/presupuesto.js')}}"></script>
+        <script src="{{asset('js/sweetalert.min.js')}}"></script>
         <script>
             $(document).ready(function(){
                 $('#presupuesto').DataTable();
             });
+
         </script>
     </div>
     <a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>

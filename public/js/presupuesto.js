@@ -8,6 +8,7 @@ $.ajaxSetup({
 
 })
 
+
 $(document).ready(function(){
 
     var url = "presupuesto";
@@ -22,8 +23,6 @@ $(document).ready(function(){
             console.log(data);
             $('#presupuesto_id').val(data.id);
             $('#nombrepresupuesto').val(data.nombrepresupuesto);
-
-
             $('#btn-save').val("update");
             $('#myModal').modal('show');
 
@@ -40,21 +39,49 @@ $(document).ready(function(){
 
     //delete presupuesto and remove it from list
     $('#presupuesto-list').on('click', '.delete-presupuesto',function(){
-        var presupuesto_id = $(this).val();
 
-        $.ajax({
-
-            type: "DELETE",
-            url: url + '/' + presupuesto_id,
-            success: function (data) {
-                console.log(data);
-
-                $("#presupuesto" + presupuesto_id).remove();
-            },
-            error: function (data) {
-                console.log('Error:', data);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
-        });
+        })
+        var presupuesto_id = $(this).val();
+        event.preventDefault();
+        swal({
+                title: "Estas seguro?",
+                text: "Se eliminara permanentemente de la base de datos!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "SI, borrar!",
+                cancelButtonText: "NO, cancelar!",
+                closeOnConfirm: true,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+                if (isConfirm) {
+                    swal("Borrado!", "Fue borrado exitosamente.", "success");
+                    $.ajax({
+
+                        type: "DELETE",
+                        url: url + '/' + presupuesto_id,
+                        success: function (data) {
+
+                            console.log(data);
+
+                            $("#presupuesto" + presupuesto_id).remove();
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            console.log('Error:', data);
+                        }
+                    });
+                } else {
+                    swal("Cancelado", "El texto no fue borrado :)", "error");
+                }
+            });
+
+
     });
 
     //create new presupuesto / update existing presupuesto
@@ -76,7 +103,6 @@ $(document).ready(function(){
 
         //used to determine the http verb to use [add=POST], [update=PUT]
         var state = $('#btn-save').val();
-
         var type = "POST"; //for creating new resource
         var presupuesto_id = $('#presupuesto_id').val();
         var my_url = url;
@@ -111,6 +137,7 @@ $(document).ready(function(){
                 $('#frmpresupuesto').trigger("reset");
 
                 $('#myModal').modal('hide')
+                window.location.reload();
             },
             error: function (data) {
                 console.log('Error:', data);

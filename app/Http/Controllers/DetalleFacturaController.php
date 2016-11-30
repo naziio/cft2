@@ -30,7 +30,7 @@ class DetalleFacturaController extends Controller
 
     public function create($factura)
     {
-        $obra=Factura::select('obra_fk')
+    /*    $obra=Factura::select('obra_fk')
             ->where('id',$factura)
         ->pluck('obra_fk','obra_fk');
 
@@ -38,6 +38,8 @@ class DetalleFacturaController extends Controller
         $nombrepu= NombrePU::select('nombrepu')
             ->where('presupuesto_fk',$obra)
             ->pluck('nombrepu','nombrepu');
+
+    */
         $selected = array();
 
         return view('obra.factura.detalle.create', compact('factura','nombrepu','selected'));
@@ -158,29 +160,13 @@ $obradetalle=$request->factura_fk;
         $obra= Factura::find($factura);
         $obra= $obra->obra_fk;
 
-      // $nombrepu=NombrePU::where('presupuesto_fk', $obra)
-       //                 ->get();
-
-
        $nombrepu = DB::table('nombrepu')
             ->join('factura', 'nombrepu.nombrepu', '=', 'factura.observacion')
-            //->sum('factura.subtotal')
-            ->select('nombrepu.id','nombrepu.nombrepu', 'nombrepu.cantidad as cantidad1', 'nombrepu.preciounitario', 'nombrepu.total as total1', DB::raw('SUM(factura.subtotal) as subtotal'), DB::raw('SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva)as iva') )
-           // ->where('detalle_factura.factura_fk',$factura)
-           //DB::raw( 'SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva) as iva')
+           ->select('nombrepu.id','nombrepu.nombrepu', 'nombrepu.cantidad as cantidad1', 'nombrepu.preciounitario', 'nombrepu.total as total1', DB::raw('SUM(factura.subtotal) as subtotal'), DB::raw('SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva)as iva') )
+
            ->groupby('nombrepu.nombrepu', 'cantidad1', 'nombrepu.preciounitario', 'total1', 'subtotal','nombrepu.id')
            ->get();
-        //dd($nombrepu);
-        //$detalle=DetalleFactura::where('factura_fk',$factura)
-         //   ->get();
-
-// $nombrepu=NombrePU::where('presupuesto_fk', $obra)
-
-       /* $detalle = DB::table('detalle_factura')
-            ->where('detalle_factura.factura_fk',$factura)
-            ->get();
-        */
-        return view('obra.comparar.index', compact('nombrepu','detalle'));
+        return view('obra.comparar.index', compact('nombrepu'));
     }
 
 

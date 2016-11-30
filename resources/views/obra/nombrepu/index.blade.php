@@ -104,6 +104,7 @@ Detalle de presupuesto
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
+
     <script>
         $(document).ready(function(){
             $('#nombrepu').DataTable();

@@ -75,9 +75,10 @@ class PersonalController extends Controller
         return Response::json($personal);
     }
 
-    public function destroy()
+    public function destroy($personal_id)
     {
-
+        $personal= Personal::destroy($personal_id);
+        return Response::json($personal);
     }
 
     public function ver($obras)

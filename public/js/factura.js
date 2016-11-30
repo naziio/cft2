@@ -36,6 +36,7 @@ $(document).ready(function(){
            // $('#estado').val(data.estado);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
+
         })
     });
 
@@ -48,21 +49,46 @@ $(document).ready(function(){
 
     //delete factura and remove it from list
     $('#factura-list').on('click', '.delete-factura',function(){
-        var factura_id = $(this).val();
-
-        $.ajax({
-
-            type: "DELETE",
-            url: url + '/' + factura_id,
-            success: function (data) {
-                console.log(data);
-
-                $("#factura" + factura_id).remove();
-            },
-            error: function (data) {
-                console.log('Error:', data);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
-        });
+        })
+        var factura_id = $(this).val();
+        event.preventDefault();
+        swal({
+                title: "Estas seguro?",
+                text: "Se eliminara permanentemente de la base de datos!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "SI, borrar!",
+                cancelButtonText: "NO, cancelar!",
+                closeOnConfirm: true,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+                if (isConfirm) {
+                    swal("Borrado!", "Fue borrado exitosamente.", "success");
+                    $.ajax({
+
+                        type: "DELETE",
+                        url: url + '/' + factura_id,
+                        success: function (data) {
+
+                            console.log(data);
+
+                            $("#factura" + factura_id).remove();
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            console.log('Error:', data);
+                        }
+                    });
+                } else {
+                    swal("Cancelado", "El texto no fue borrado :)", "error");
+                }
+            });
     });
 
     //create new factura / update existing factura
@@ -129,6 +155,7 @@ $(document).ready(function(){
                 $('#frmfactura').trigger("reset");
 
                 $('#myModal').modal('hide')
+                window.location.reload();
             },
             error: function (data) {
                 console.log('Error:', data);

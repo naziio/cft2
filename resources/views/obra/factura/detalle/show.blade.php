@@ -32,7 +32,7 @@ detalle
                 <tr id="detalle{{$detalles->id}}">
                     <td>{{$detalles->id}}</td>
                     <td>{{$detalles->nombrepu}}</td>
-                    <td>{{number_format($detalles->cantidad)}}</td>
+                    <td>{{$detalles->cantidad}}</td>
                     <td>{{number_format($detalles->precio_unitario)}}</td>
                     <td>{{number_format($detalles->total)}}</td>
                     <td>{{$detalles->created_at}}</td>
@@ -107,6 +107,7 @@ detalle
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{asset('js/detalle.js')}}"></script>
+    <script src="{{asset('js/sweetalert.min.js')}}"></script>
     </body>
     <a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>
 

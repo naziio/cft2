@@ -36,6 +36,12 @@ class PresupuestoController extends Controller
         return Response::json($presupuesto);
     }
 
+    public function edit($presupuesto_id)
+    {
+        $presupuesto = Presupuesto::find($presupuesto_id);
+        return Response::json($presupuesto);
+    }
+
     public function show($presupuesto_id){
 
 
@@ -49,4 +55,10 @@ public function update($presupuesto_id)
     $presupuesto->save();
     return Response::json($presupuesto);
 }
+
+    public function destroy($presupuesto_id)
+    {
+        $presupuesto = Presupuesto::destroy($presupuesto_id);
+        return Response::json($presupuesto);
+    }
 }

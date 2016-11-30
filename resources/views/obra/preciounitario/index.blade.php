@@ -30,9 +30,9 @@ Precio unitario
                 <tr id="preciounitario{{$preciounitarios->id}}">
                     <td>{{$preciounitarios->id}}</td>
                     <td>{{$preciounitarios->item}}</td>
-                    <td>{{number_format($preciounitarios->cantidad)}}</td>
-                    <td>{{number_format($preciounitarios->preciounitario)}}</td>
-                    <td>{{number_format($preciounitarios->total)}}</td>
+                    <td>{{$preciounitarios->cantidad}}</td>
+                    <td>{{$preciounitarios->preciounitario}}</td>
+                    <td>{{$preciounitarios->total}}</td>
                 </tr>
                 @endforeach
                 </tbody>
