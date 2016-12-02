@@ -34,7 +34,7 @@ $('#table').DataTable({
 */
 //Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware' => 'role:user'], function(){
 
-
+Route::get('/', 'HomeController@index');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index');
@@ -44,9 +44,32 @@ Route::group(['middleware' => 'auth'], function () {
 
          Route::group(['middleware' => 'role:admin,user,editor'], function () {
 
-             Route::get('obra/factura/index/{obras}', 'FacturaController@index');
+          Route::get('obra/factura/{obras}', 'FacturaController@index');
 
-             Route::post('obra/factura/index/{obras}','FacturaController@store');
+          Route::post('obra/factura/{obras}','FacturaController@store');
+
+          Route::get('obra/factura/{obras}/edit',['as' => 'obra/factura', 'uses' =>'FacturaController@edit']);
+
+          Route::put('obra/factura/{obras}', ['as' => 'obra/factura', 'uses' =>'FacturaController@update']);
+
+          Route::delete('obra/factura/{obras}','FacturaController@destroy');
+
+
+
+           // Route::post('obra/factura', ['as' => 'obra/factura/index', 'uses' =>'FacturaController@index']);
+
+           // Route::resource('obra/factura', ['as' => 'obra/factura', 'uses' =>'FacturaController']);
+
+         //   Route::get('obra/factura', ['as' => 'obra/factura', 'uses' =>'FacturaController@edit']);
+
+           // Route::delete('obra/factura',['as' => 'obra/factura', 'uses' =>'FacturaController@destroy']);
+
+          //  Route::
+
+             Route::get('obra/api/factura/{id}',[
+                'as'=>'getFactura',
+                'uses'=>'FacturaController@findFactura'
+             ]);
 
              Route::get('obra/factura/detalle/index/{facturas}',  ['as' => 'detalle/index', 'uses' =>'DetalleFacturaController@index']);
 
@@ -54,7 +77,8 @@ Route::group(['middleware' => 'auth'], function () {
 
              Route::post('obra/factura/detalle/create', ['as'=> 'detalle/store', 'uses' => 'DetalleFacturaController@store']);
 
-             Route::resource('obra/factura/index', 'FacturaController');
+
+
 
          });
     Route::resource('proveedor','ProveedorController');

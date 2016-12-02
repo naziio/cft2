@@ -20,6 +20,7 @@ $(document).ready(function(){
         $.get(url + '/' + obra_id, function (data) {
             //success data
             console.log(data);
+
             $('#obra_id').val(data.id);
             $('#name').val(data.name);
             $('#direccion').val(data.direccion);
@@ -27,7 +28,6 @@ $(document).ready(function(){
             $('#fecha').val(data.fecha);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
-
         })
 
     });

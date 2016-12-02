@@ -26,7 +26,7 @@ class FacturasTable extends Migration
            // $table->integer('proveedor_fk')->unsigned();
            //$table->foreign('proveedor_fk')->references('id')->on('proveedor')->onDelete('cascade');
            // $table->float('total_venta');
-            $table->enum('estado', ['pagado','pendiente']);
+          //  $table->enum('estado', ['pagado','pendiente']);
             $table->integer('obra_fk'); //nuevo
             $table->timestamps();
         });

@@ -7,7 +7,8 @@ Facturas
 
 @section('main-content')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-<link href="css/sweetalert.css" rel="stylesheet">
+
+<link href="{{asset('css/sweetalert.css')}}" rel="stylesheet">
 
 
 <div class="container">
@@ -15,11 +16,10 @@ Facturas
         <h2>Ingreso de factura</h2>
         <button id="btn-add" name="btn-add" class="btn btn-primary">Agregar FACTURA</button>
         <a href="{{ url('proveedor')}}"><button id="btn-add2" name="btn-add2" class="btn btn-primary">Agregar PROVEEDOR</button></a>
-
         <div>
 
             <!-- Table-to-load-the-data Part -->
-            <table class="table table-bordered" id="factura">
+            <table class="table table-bordered" id="facturas">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -35,7 +35,7 @@ Facturas
                     <th>Concepto</th>
                     <th>Obser.</th>
 
-<th></th>
+<th>Subido el</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -58,10 +58,11 @@ Facturas
                     <td>
 
 
-                        <a href="{{ route('detalle/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="{{$facturas->id}}">Cargar Datos</button></a>
+                        <a href="{{ route('detalle/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">Cargar Datos</button></a>
                         <a href="{{ route('comparar/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">COMPARAR</button></a>
 
                         <button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$facturas->id}}">Editar</button>
+                        <button  class="btn btn-danger btn-xs btn-detail delete-factura" value="{{$facturas->id}}">Eliminar</button>
 <!--                        <a href="{{ url('obra/factura/detalle/show', $facturas->id) }}"> <button class="btn btn-danger btn-xs" value="{{$facturas->id}}">Detalle</button></a>-->
                     </td>
                 </tr>
@@ -82,7 +83,7 @@ Facturas
                     <th>IVA</th>
                     <th>Concepto</th>
                     <th>Obser.</th>
-<th></th>
+<th>Subido el</th>
                     <th></th>
 
                 </tr>
@@ -190,7 +191,7 @@ Facturas
                                     </div>
                                 </div>-->
 
-
+<!-- MUESGRAME EL FORMULARIO EDITAR -->
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -209,11 +210,11 @@ Facturas
     <script src="{{asset('js/sweetalert.min.js')}}"></script>
     <script>
         $(document).ready(function(){
-            $('#factura').DataTable();
+            $('#facturas').DataTable();
         });
     </script>
     </body>
-    <a href="{{ url()->previous() }}" class="btn btn-info">Back</a>
+    <a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>
 
 
 

@@ -7,7 +7,7 @@ Obras
 
 @section('main-content')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-<link href="css/sweetalert.css" rel="stylesheet">
+<link href="{{asset('css/sweetalert.css')}}" rel="stylesheet">
 
 <div class="container">
     <div class="container-narrow">
@@ -33,7 +33,8 @@ Obras
                 @foreach ($obra as $obras)
                 <tr id="obra{{$obras->id}}">
                     <td>{{$obras->id}}</td>
-                    <td>{{$obras->name}} <a href="{{ url('obra/factura/index', $obras->id)}}"><button  class="btn btn-primary btn-xs btn-detail" value="{{$obras->id}}">FACTURAS</button></a></td>
+
+                    <td>{{$obras->name}} <a href="{{ url('obra/factura', $obras->id)}}"><button  class="btn btn-primary btn-xs btn-detail" value="">FACTURAS</button></a></td>
                     <td>{{$obras->direccion}}</td>
                     <td>{{$obras->telefono}}</td>
                     <td>{{$obras->fecha}}</td>

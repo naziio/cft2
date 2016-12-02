@@ -10,15 +10,12 @@ $.ajaxSetup({
 
 $(document).ready(function(){
 
-    var url = "factura";
-
+    var url = "/cft2/public/obra/factura";
     //display modal form for factura editing
 
     $('#factura-list').on('click', '.open-modal',function(){
         var factura_id = $(this).val();
-
-        $.get(url + '/' + factura_id, function (data) {
-            //success data
+        $.get('http://localhost:8080/cft2/public/obra/factura/' + factura_id+ '/edit',function(data){
             console.log(data);
             $('#factura_id').val(data.id);
             $('#razon_social').val(data.razon_social);
@@ -33,11 +30,11 @@ $(document).ready(function(){
             $('#total_concepto').val(data.total_concepto);
             $('#observacion').val(data.observacion);
             $('#obra_fk').val(data.obra_fk);
-           // $('#estado').val(data.estado);
+            // $('#estado').val(data.estado);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
+        });
 
-        })
     });
 
     //display modal form for creating new factura
@@ -98,11 +95,9 @@ $(document).ready(function(){
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         })
-
         e.preventDefault();
 
         var formData = {
-
             razon_social: $('#razon_social').val(),
             subtotal: $('#subtotal').val(),
             recargo: $('#recargo').val(),

@@ -16,9 +16,18 @@ use App\Http\Requests;
 
 class FacturaController extends Controller
 {
+
+    public function findFactura($id){
+        $factura=Factura::findOrFail($id);
+        return response()->json(compact('factura'));
+    }
+
+
+
     public function index($obras)
     {
-
+         // dd($obras);
+        //$obras= $request->obras;
         $proveedor = Proveedor::all()
             ->pluck('name','name');
         $factura = Factura::where('obra_fk',$obras)
@@ -28,6 +37,7 @@ class FacturaController extends Controller
             ->pluck('nombrepu','nombrepu');
         $selected = array();
         return view('obra.factura.index',compact('factura','proveedor','selected','nombrepu','obras'));
+       // return Response::json(compact('factura','proveedor','selected','nombrepu','obras'));
         //return view('obra.factura.index');
     }
 
@@ -50,7 +60,7 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-
+//dd($request);
         $factura= new Factura($request->all());
         $factura->user_fk= Auth::id();
         //dd($factura);
@@ -67,10 +77,19 @@ class FacturaController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($factura_id)
+    public function show($obras)
     {
-        $factura = Factura::find($factura_id);
-        return Response::json($factura);
+       // $obras= $request->obras;
+        $proveedor = Proveedor::all()
+            ->pluck('name','name');
+        $factura = Factura::where('obra_fk',$obras)
+            ->get();
+        $nombrepu = NombrePU::select('nombrepu')
+            ->where('presupuesto_fk',$obras)
+            ->pluck('nombrepu','nombrepu');
+        $selected = array();
+         return view('obra.factura.index',compact('factura','proveedor','selected','nombrepu','obras'));
+      //  return Response::json(compact('factura','proveedor','selected','nombrepu','obras'));
     }
 
     /**
@@ -79,12 +98,12 @@ class FacturaController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($factura_id)
+    public function edit($id)
     {
-        $factura = Factura::find($factura_id);
+
+        $factura = Factura::findOrFail($id);
         return Response::json($factura);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -92,12 +111,31 @@ class FacturaController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($factura_id)
+    public function update(Request $request, $factura_id)
     {
 
-        $factura =Factura::findOrfail($factura_id);
+        $factura = new Factura($request->all());
+
+        $user = Auth::id();
+        $factura = \App\Factura::findorfail($factura_id);
+
+        $factura->razon_social = $request->razon_social;
+        $factura->subtotal = $request->subtotal;
+        $factura->obra_fk = $request->obra_fk;
+        $factura->recargo = $request->recargo;
+        $factura->num_factura = $request->num_factura;
+        $factura->monto_exento = $request->monto_exento;
+        $factura->descuentos = $request->descuentos;
+        $factura->impuesto_especifico = $request->impuesto_especifico;
+        $factura->neto = $request->neto;
+        $factura->iva = $request->iva;
+        $factura->total_concepto = $request->total_concepto;
+        $factura->observacion = $request->observacion;
+        $factura->user_fk = $user;
+
+
         $factura->save();
-        return Response::json($factura);
+                return Response::json($factura);
     }
 
     /**
