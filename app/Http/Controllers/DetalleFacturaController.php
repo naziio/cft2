@@ -28,7 +28,7 @@ class DetalleFacturaController extends Controller
     }
 
 
-    public function create($factura)
+    public function create(Request $request)
     {
     /*    $obra=Factura::select('obra_fk')
             ->where('id',$factura)
@@ -40,29 +40,30 @@ class DetalleFacturaController extends Controller
             ->pluck('nombrepu','nombrepu');
 
     */
-        $selected = array();
+        //$selected = array();
 
-        return view('obra.factura.detalle.create', compact('factura','nombrepu','selected'));
+        //return view('obra.factura.detalle.create', compact('factura','nombrepu','selected'));
+        $detalle=DetalleFactura::create($request->all());
+        return Response::json($detalle);
     }
 
     public function store(Request $request)
     {
+        //dd($request);
 
-$obradetalle=$request->factura_fk;
+       $obradetalle=$request->factura_fk;
 
         $factura= DB::table('factura')
             ->join('detalle_factura' ,'detalle_factura.factura_fk','=', 'factura.id')
         ->where('factura.id',$obradetalle)
         ->select('factura.obra_fk')
             ->get()->last();
-
         $detalle= new DetalleFactura($request->all());
         $detalle->user_fk= Auth::id();
         $detalle->save();
 
 
-
-        return view('obra.obra');
+        return Response::json($detalle);
 
     }
     public function edit($detalle)
@@ -78,17 +79,28 @@ $obradetalle=$request->factura_fk;
      * @param  int  $id
      * @return Response
      */
-    public function update($detalle)
+    public function update($detalle_id, Request $request)
     {
+        $factura = new Factura($request->all());
+
+        $user = Auth::id();
+        $detalle = \App\DetalleFactura::findorfail($detalle_id);
+
+        $Detalle->razon_social = $request->razon_social;
+        $factura->subtotal = $request->subtotal;
+        $factura->obra_fk = $request->obra_fk;
+        $factura->recargo = $request->recargo;
+        $factura->num_factura = $request->num_factura;
 
         $detalle =DetalleFactura::findOrfail($detalle);
+
         $detalle->save();
         return Response::json($detalle);
     }
 
     public function show($detalle)
     {
-        $detalle = Factura::find($detalle);
+        $detalle = DetalleFactura::find($detalle);
         return Response::json($detalle);
     }
 
@@ -164,7 +176,7 @@ $obradetalle=$request->factura_fk;
             ->join('factura', 'nombrepu.nombrepu', '=', 'factura.observacion')
            ->select('nombrepu.id','nombrepu.nombrepu', 'nombrepu.cantidad as cantidad1', 'nombrepu.preciounitario', 'nombrepu.total as total1', DB::raw('SUM(factura.subtotal) as subtotal'), DB::raw('SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva)as iva') )
 
-           ->groupby('nombrepu.nombrepu', 'cantidad1', 'nombrepu.preciounitario', 'total1', 'subtotal','nombrepu.id')
+           ->groupby('nombrepu.nombrepu', 'cantidad1', 'nombrepu.preciounitario', 'total1')
            ->get();
         return view('obra.comparar.index', compact('nombrepu'));
     }

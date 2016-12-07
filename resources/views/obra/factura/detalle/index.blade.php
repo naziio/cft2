@@ -6,11 +6,12 @@ detalle
 
 
 @section('main-content')
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<link href="{{asset('css/sweetalert.css')}}" rel="stylesheet">
 <div class="container">
     <div class="container-narrow">
         <h2>Detalle de factura</h2>
-        <a href="{{ url('obra/factura/detalle/create', $factura)}}"> <button id="btn-add" name="btn-add" class="btn btn-primary">Agregar Detalle Factura</button>
+        <a href="{{ url('obra/factura/detalle/create', $factura)}}"> <button  class="btn btn-primary">Agregar Detalle Factura</button>
         </a>
         <div id="notificacion_resul_fcdu"></div>
 
@@ -33,10 +34,11 @@ detalle
             </div>
         </form>
     </div>
+    <button id="btn-add" name="btn-add" class="btn btn-primary">Agregar DETALLE</button>
         <div>
 
             <!-- Table-to-load-the-data Part -->
-            <table class="table">
+            <table class="table" id="detalles">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -44,36 +46,103 @@ detalle
                     <th>cantidad</th>
                     <th>Precio unitario</th>
                     <th>Total</th>
+
+                    <th>Acciones</th>
  
 
                 </tr>
                 </thead>
-                <tbody >
+
+                <tbody id="detalle-list" name="detalle-list" >
                 @foreach ($detalle as $detalles)
                 <tr id="detalle{{$detalles->id}}">
                     <td>{{$detalles->id}}</td>
                     <td>{{$detalles->nombrepu}}</td>
                     <td>{{$detalles->cantidad}}</td>
                     <td>{{number_format($detalles->precio_unitario)}}</td>
-                    <td>{{number_format($detalles->total)}}</td>
-                    <td>{{$detalles->created_at}}</td>
+                    <td>{{number_format($detalles->cantidad*$detalles->precio_unitario)}}</td>
+
                     <td>
-                        <a href="#"><button  class="btn btn-warning btn-xs " value="{{$detalles->id}}">Ver</button></a>
-                        <a href="#"><button class="btn btn-danger btn-xs " value="{{$detalles->id}}">Eliminar</button></a>
+                      <button  class="btn btn-warning btn-xs open-modal" value="{{$detalles->id}}">Ver</button>
+                       <button class="btn btn-danger btn-xs delete-detalle" value="{{$detalles->id}}">Eliminar</button>
                     </td>
                 </tr>
                 @endforeach
                 </tbody>
+                <tfoot>
+                <th>ID</th>
+                <th>Item</th>
+                <th>cantidad</th>
+                <th>Precio unitario</th>
+                <th>Total</th>
+
+                <th>Acciones</th>
+                </tfoot>
             </table>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Agregar Detalle detalle</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="frmdetalle" name="frmdetalle" class="form-horizontal" novalidate="">
+
+
+                                <div class="form-group">
+                                    <label for="nombrepu" class="col-sm-3 control-label">Descripcion</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control " id="nombrepu" name="nombrepu">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cantidad" class="col-sm-3 control-label">Cantidad</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control " id="cantidad" name="cantidad">
+                                    </div>
+                                </div>
+                                <div class="form-group error">
+                                    <label for="precio_unitario" class="col-sm-3 control-label">Precio unitario</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control has-error" id="precio_unitario" name="precio_unitario" placeholder="" value="">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="factura_fk" class="col-sm-3 control-label">Factura</label>
+                                    <div class="col-sm-9">
+                                        {!! Form::text('factura_fk',$factura,['class' => 'form-control', 'id' => 'factura_fk', 'readonly']) !!}
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="btn-save" value="add">Guardar cambios</button>
+                            <input type="hidden" id="detalle_id" name="detalle_id" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
             <!-- End of Table-to-load-the-data Part -->
             <!-- Modal (Pop up when detail button clicked) -->
 
-    </div>
+
     <meta name="_token" content="{!! csrf_token() !!}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{asset('js/detalle.js')}}"></script>
     <script src="{{asset('js/sweetalert.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#detalles').DataTable();
+        });
+    </script>
     </body>
 
     <a href="{{ url()->previous() }}" class="btn btn-info">Back</a>

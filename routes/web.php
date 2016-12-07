@@ -42,7 +42,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
 
-         Route::group(['middleware' => 'role:admin,user,editor'], function () {
+         Route::group(['middleware' => 'role:editor,user,admin'], function () {
 
           Route::get('obra/factura/{obras}', 'FacturaController@index');
 
@@ -71,11 +71,17 @@ Route::group(['middleware' => 'auth'], function () {
                 'uses'=>'FacturaController@findFactura'
              ]);
 
-             Route::get('obra/factura/detalle/index/{facturas}',  ['as' => 'detalle/index', 'uses' =>'DetalleFacturaController@index']);
+             Route::get('obra/factura/detalle/{facturas}',  ['as' => 'detalle', 'uses' =>'DetalleFacturaController@index']);
 
-             Route::get('obra/factura/detalle/create/{factura}', 'DetalleFacturaController@create');
+             //Route::get('obra/factura/detalle/create/{factura}', 'DetalleFacturaController@create');
 
-             Route::post('obra/factura/detalle/create', ['as'=> 'detalle/store', 'uses' => 'DetalleFacturaController@store']);
+             Route::post('obra/factura/detalle/{facturas}', ['as'=> 'detalle', 'uses' => 'DetalleFacturaController@store']);
+
+             Route::get('obra/factura/detalle/{facturas}/edit',['as' => 'detalle', 'uses' =>'DetalleFacturaController@edit']);
+
+             Route::put('obra/factura/detalle/{facturas}', ['as' => 'detalle', 'uses' =>'DetalleFacturaController@update']);
+
+             Route::delete('obra/factura/detalle/{facturas}','DetalleFacturaController@destroy');
 
 
 

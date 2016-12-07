@@ -6,6 +6,7 @@ detalle
 
 
 @section('main-content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
 
 <div class="container">
     <div class="container-narrow">
@@ -23,6 +24,7 @@ detalle
                     <th>cantidad</th>
                     <th>Precio unitario</th>
                     <th>Total</th>
+                    <th>Acciones</th>
  
 
                 </tr>
@@ -34,8 +36,8 @@ detalle
                     <td>{{$detalles->nombrepu}}</td>
                     <td>{{$detalles->cantidad}}</td>
                     <td>{{number_format($detalles->precio_unitario)}}</td>
-                    <td>{{number_format($detalles->total)}}</td>
-                    <td>{{$detalles->created_at}}</td>
+                    <td>{{number_format($detalles->cantidad*$detalles->precio_unitario)}}</td>
+
                     <td>
                         <a href="#"><button  class="btn btn-warning btn-xs btn-detail" value="{{$detalles->id}}">Editar</button></a>
                         <a href="#"><button class="btn btn-danger btn-xs btn-delete " value="{{$detalles->id}}">Eliminar</button></a>
@@ -43,6 +45,14 @@ detalle
                 </tr>
                 @endforeach
                 </tbody>
+                <tfoot>
+                <th>ID</th>
+                <th>Item</th>
+                <th>cantidad</th>
+                <th>Precio unitario</th>
+                <th>Total</th>
+                <th>Acciones</th>
+                </tfoot>
             </table>
             <!-- End of Table-to-load-the-data Part -->
             <!-- Modal (Pop up when detail button clicked) -->
@@ -108,6 +118,11 @@ detalle
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{asset('js/detalle.js')}}"></script>
     <script src="{{asset('js/sweetalert.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#detalles').DataTable();
+        });
+    </script>
     </body>
     <a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>
 

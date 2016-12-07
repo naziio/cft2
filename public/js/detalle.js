@@ -10,22 +10,22 @@ $.ajaxSetup({
 
 $(document).ready(function(){
 
-    var url = "detalle";
+    var url = "http://admin.constructoracft.cl/obra/factura/detalle"
 
     //display modal form for detalle editing
 
     $('#detalle-list').on('click', '.open-modal',function(){
         var detalle_id = $(this).val();
 
-        $.get(url + '/' + detalle_id, function (data) {
+        $.get('http://admin.constructoracft.cl/obra/factura/detalle/' + detalle_id+ '/edit', function (data) {
             //success data
             console.log(data);
             $('#detalle_id').val(data.id);
 
-            $('#id_producto').val(data.id_produco);
+            $('#nombrepu').val(data.nombrepu);
             $('#cantidad').val(data.cantidad);
             $('#precio_unitario').val(data.precio_unitario);
-            $('#total').val(data.total);
+            //$('#total').val(data.total);
            $('#factura_fk').val(data.factura_fk);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
@@ -93,10 +93,10 @@ $(document).ready(function(){
         var formData = {
 
 
-            id_producto: $('#id_producto').val(),
+            nombrepu: $('#nombrepu').val(),
             cantidad:  $('#cantidad').val(),
             precio_unitario: $('#precio_unitario').val(),
-            total: $('#total').val(),
+           // total: $('#total').val(),
             factura_fk: $('#factura_fk').val()
         }
 
@@ -105,11 +105,12 @@ $(document).ready(function(){
 
         var type = "POST"; //for creating new resource
         var detalle_id = $('#detalle_id').val();
-        var my_url = url;
-
+        var factura_fk = $('#factura_fk').val();
+        var my_url = url + '/' + factura_fk;
         if (state == "update"){
             type = "PUT"; //for updating existing resource
-            my_url += '/' + detalle_id;
+            my_url;
+                //+= '/' + detalle_id;
         }
 
         console.log(formData);
@@ -123,7 +124,7 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
 
-                var detalle = '<tr id="detalle' + data.id + '"><td>' + data.id + '</td><td>' + data.id_producto + '</td><td>' + data.cantidad + '</td><td>' + data.precio_unitario + '</td><td>' + data.total + '</td><td>'+ data.factura_fk + '</td><td>';
+                var detalle = '<tr id="detalle' + data.id + '"><td>' + data.id + '</td><td>' + data.nombrepu + '</td><td>' + data.cantidad + '</td><td>' + data.precio_unitario + '</td><td>'+ data.factura_fk + '</td><td>';
                 detalle += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
                 detalle += '<button class="btn btn-danger btn-xs btn-delete delete-detalle" value="' + data.id + '">Delete</button></td></tr>';
 

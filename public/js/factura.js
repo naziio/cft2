@@ -10,12 +10,12 @@ $.ajaxSetup({
 
 $(document).ready(function(){
 
-    var url = "/cft2/public/obra/factura";
+    var url = "http://admin.constructoracft.cl/obra/factura";
     //display modal form for factura editing
 
     $('#factura-list').on('click', '.open-modal',function(){
         var factura_id = $(this).val();
-        $.get('http://localhost:8080/cft2/public/obra/factura/' + factura_id+ '/edit',function(data){
+        $.get('http://admin.constructoracft.cl/obra/factura/' + factura_id+ '/edit',function(data){
             console.log(data);
             $('#factura_id').val(data.id);
             $('#razon_social').val(data.razon_social);
@@ -118,11 +118,13 @@ $(document).ready(function(){
 
         var type = "POST"; //for creating new resource
         var factura_id = $('#factura_id').val();
-        var my_url = url;
+       var obra_fk=  $('#obra_fk').val();
+       // var my_url = url + '/' + factura_id;
+        var my_url = url + '/' + obra_fk;
 
         if (state == "update"){
             type = "PUT"; //for updating existing resource
-            my_url += '/' + factura_id;
+           var my_url = url += '/' + factura_id;
         }
 
         console.log(formData);

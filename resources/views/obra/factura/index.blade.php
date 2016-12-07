@@ -58,7 +58,7 @@ Facturas
                     <td>
 
 
-                        <a href="{{ route('detalle/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">Cargar Datos</button></a>
+                        <a href="{{ route('detalle', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">Cargar Datos</button></a>
                         <a href="{{ route('comparar/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">COMPARAR</button></a>
 
                         <button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$facturas->id}}">Editar</button>
