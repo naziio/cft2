@@ -11,8 +11,9 @@ detalle
 <div class="container">
     <div class="container-narrow">
         <h2>Detalle de factura</h2>
-        <a href="{{ url('obra/factura/detalle/create', $factura)}}"> <button  class="btn btn-primary">Agregar Detalle Factura</button>
-        </a>
+        <button id="btn-add" name="btn-add" class="btn btn-primary">Agregar DETALLE</button>
+<!--   <a href="{{ url('obra/factura/detalle/create', $factura)}}"> <button  class="btn btn-primary">Agregar Detalle Factura</button>-->
+        <!--   </a> -->
         <div id="notificacion_resul_fcdu"></div>
 
         <form  id="f_cargar_datos_factura" name="f_cargar_datos_factura" method="post"  action="cargar_datos2" class="formarchivo" enctype="multipart/form-data" >
@@ -34,7 +35,7 @@ detalle
             </div>
         </form>
     </div>
-    <button id="btn-add" name="btn-add" class="btn btn-primary">Agregar DETALLE</button>
+
         <div>
 
             <!-- Table-to-load-the-data Part -->
@@ -52,7 +53,9 @@ detalle
 
                 </tr>
                 </thead>
-
+<?
+$total=0;
+?>
                 <tbody id="detalle-list" name="detalle-list" >
                 @foreach ($detalle as $detalles)
                 <tr id="detalle{{$detalles->id}}">
@@ -60,14 +63,23 @@ detalle
                     <td>{{$detalles->nombrepu}}</td>
                     <td>{{$detalles->cantidad}}</td>
                     <td>{{number_format($detalles->precio_unitario)}}</td>
-                    <td>{{number_format($detalles->cantidad*$detalles->precio_unitario)}}</td>
-
+                    <td>{{number_format($detalles->cantidad*$detalles->precio_unitario)}} </td>
+                    <?
+                    $total= $total + ($detalles->cantidad*$detalles->precio_unitario);
+                    ?>
                     <td>
                       <button  class="btn btn-warning btn-xs open-modal" value="{{$detalles->id}}">Ver</button>
                        <button class="btn btn-danger btn-xs delete-detalle" value="{{$detalles->id}}">Eliminar</button>
                     </td>
                 </tr>
                 @endforeach
+                <?
+                echo 'NETO: '.number_format($total);
+                echo '</br>';
+                echo 'TOTAL: '.number_format($neto = $total*1.19) ;
+                echo '</br>';
+                echo 'IVA: '.number_format($neto-$total);
+                ?>
                 </tbody>
                 <tfoot>
                 <th>ID</th>

@@ -81,18 +81,17 @@ class DetalleFacturaController extends Controller
      */
     public function update($detalle_id, Request $request)
     {
-        $factura = new Factura($request->all());
-
         $user = Auth::id();
         $detalle = \App\DetalleFactura::findorfail($detalle_id);
 
-        $Detalle->razon_social = $request->razon_social;
-        $factura->subtotal = $request->subtotal;
-        $factura->obra_fk = $request->obra_fk;
-        $factura->recargo = $request->recargo;
-        $factura->num_factura = $request->num_factura;
+        $detalle->nombrepu = $request->nombrepu;
+        $detalle->cantidad = $request->cantidad;
+        $detalle->precio_unitario = $request->precio_unitario;
+        $detalle->factura_fk = $request->factura_fk;
+        $detalle->user_fk = $user;
 
-        $detalle =DetalleFactura::findOrfail($detalle);
+
+       // $detalle =DetalleFactura::findOrfail($detalle);
 
         $detalle->save();
         return Response::json($detalle);
@@ -105,6 +104,13 @@ class DetalleFacturaController extends Controller
     }
 
 
+    public function destroy($detalle_id)
+    {
+
+        $detalle= DetalleFactura::findorfail($detalle_id);
+        $detalle->delete();
+        return Response::json($detalle);
+    }
 
     public function cargar_datos2(Request $request)
     {

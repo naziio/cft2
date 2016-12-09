@@ -21,12 +21,11 @@ $(document).ready(function(){
             //success data
             console.log(data);
             $('#detalle_id').val(data.id);
-
             $('#nombrepu').val(data.nombrepu);
             $('#cantidad').val(data.cantidad);
             $('#precio_unitario').val(data.precio_unitario);
             //$('#total').val(data.total);
-           $('#factura_fk').val(data.factura_fk);
+            $('#factura_fk').val(data.factura_fk);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
 
@@ -42,6 +41,11 @@ $(document).ready(function(){
 
     //delete detalle and remove it from list
     $('#detalle-list').on('click', '.delete-detalle',function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
         var detalle_id = $(this).val();
 
         event.preventDefault();
@@ -92,7 +96,6 @@ $(document).ready(function(){
 
         var formData = {
 
-
             nombrepu: $('#nombrepu').val(),
             cantidad:  $('#cantidad').val(),
             precio_unitario: $('#precio_unitario').val(),
@@ -107,9 +110,10 @@ $(document).ready(function(){
         var detalle_id = $('#detalle_id').val();
         var factura_fk = $('#factura_fk').val();
         var my_url = url + '/' + factura_fk;
+
         if (state == "update"){
             type = "PUT"; //for updating existing resource
-            my_url;
+           var my_url = url += '/' + detalle_id;
                 //+= '/' + detalle_id;
         }
 
