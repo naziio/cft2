@@ -15,11 +15,12 @@ class DetallesFacturasTable extends Migration
     {
         Schema::create('detalle_factura', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_producto');
+            $table->integer('nombrepu');
             $table->integer('cantidad');
             $table->float('precio_unitario');
             $table->float('total');
             $table->integer('factura_fk');
+            $table->integer('item_id');
             $table->timestamps();
         });
     }

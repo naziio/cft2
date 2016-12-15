@@ -7,6 +7,7 @@ use App\Factura;
 use App\NombrePU;
 use App\Proveedor;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 //use App\Personal;
 use Illuminate\Http\Request;
@@ -30,12 +31,23 @@ class FacturaController extends Controller
         //$obras= $request->obras;
         $proveedor = Proveedor::all()
             ->pluck('name','name');
-        $factura = Factura::where('obra_fk',$obras)
+       /* $nombrepu = DB::table('nombrepu')
+            ->join('factura', 'nombrepu.nombrepu', '=', 'factura.observacion')
+            ->select('nombrepu.id','nombrepu.nombrepu', 'nombrepu.cantidad as cantidad1', 'nombrepu.preciounitario', 'nombrepu.total as total1', DB::raw('SUM(factura.subtotal) as subtotal'), DB::raw('SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva)as iva') )
+            ->groupby('nombrepu.nombrepu', 'cantidad1', 'nombrepu.preciounitario', 'total1')
+            ->get();
+       */
+        $factura = Factura::join('detalle_factura','factura.id','=','detalle_factura.factura_fk')
+        ->where('factura.obra_fk',$obras)
+        ->select('factura.*','detalle_factura.cantidad as cantidad','detalle_factura.precio_unitario as preciounitario')
         ->get();
+       // dd($factura);
         $nombrepu = NombrePU::select('nombrepu')
         ->where('presupuesto_fk',$obras)
             ->pluck('nombrepu','nombrepu');
         $selected = array();
+
+
         return view('obra.factura.index',compact('factura','proveedor','selected','nombrepu','obras'));
        // return Response::json(compact('factura','proveedor','selected','nombrepu','obras'));
         //return view('obra.factura.index');

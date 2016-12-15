@@ -47,7 +47,7 @@ detalle
                     <th>cantidad</th>
                     <th>Precio unitario</th>
                     <th>Total</th>
-
+                    <th>ITEM</th>
                     <th>Acciones</th>
  
 
@@ -64,6 +64,7 @@ $total=0;
                     <td>{{$detalles->cantidad}}</td>
                     <td>{{number_format($detalles->precio_unitario)}}</td>
                     <td>{{number_format($detalles->cantidad*$detalles->precio_unitario)}} </td>
+                    <td>{{$detalles->item_id}}</td>
                     <?
                     $total= $total + ($detalles->cantidad*$detalles->precio_unitario);
                     ?>
@@ -76,9 +77,10 @@ $total=0;
                 <?
                 echo 'NETO: '.number_format($total);
                 echo '</br>';
-                echo 'TOTAL: '.number_format($neto = $total*1.19) ;
-                echo '</br>';
+                $neto = $total*1.19;
                 echo 'IVA: '.number_format($neto-$total);
+                echo '</br>';
+                echo 'TOTAL: '.number_format($neto) ;
                 ?>
                 </tbody>
                 <tfoot>
@@ -87,7 +89,7 @@ $total=0;
                 <th>cantidad</th>
                 <th>Precio unitario</th>
                 <th>Total</th>
-
+                <th>ITEM</th>
                 <th>Acciones</th>
                 </tfoot>
             </table>
@@ -122,6 +124,12 @@ $total=0;
                                 </div>
 
 
+                                <div class="form-group">
+                                    <label for="item_id" class="col-sm-3 control-label">ITEM</label>
+                                    <div class="col-sm-9">
+                                        {!! Form::select('item_id',$item,array[],['class' => 'form-control', 'id' => 'item_id']) !!}
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="factura_fk" class="col-sm-3 control-label">Factura</label>
@@ -157,6 +165,6 @@ $total=0;
     </script>
     </body>
 
-    <a href="{{ url()->previous() }}" class="btn btn-info">Back</a>
+    <a href="{{ url()->previous() }}" class="btn btn-info">Volver</a>
 </div>
 @endsection

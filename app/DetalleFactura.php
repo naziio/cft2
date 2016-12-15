@@ -8,7 +8,7 @@ class DetalleFactura extends Model
 {
     protected $table='detalle_factura';
 
-    protected $fillable= ['id', 'cantidad', 'precio_unitario', 'total', 'factura_fk','nombrepu','user_fk'];
+    protected $fillable= ['id', 'cantidad', 'precio_unitario', 'total', 'factura_fk','nombrepu','user_fk','item_id'];
 
 
 

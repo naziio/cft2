@@ -18,8 +18,7 @@ Comparar
         <th>Precio Unitario</th>
         <th>Total.</th>
         <th>Neto</th>
-        <th>IVA</th>
-        <th>TotalF</th>
+        <th>Saldo</th>
 
     </tr>
     </thead>
@@ -34,14 +33,14 @@ Comparar
         @endif
     <td>{{$nombrepus->cantidad1}}</td>
     <td>{{number_format($nombrepus->preciounitario)}}</td>
-    <td class="info">{{number_format($nombrepus->total1)}}</td>
+    <td class="success">{{number_format($nombrepus->total1)}}</td>
 
-        <td>{{number_format($nombrepus->neto)}}</td>
-        <td>{{number_format($nombrepus->iva)}}</td>
-        @if($nombrepus->total1<$nombrepus->subtotal)
-        <td class="danger">{{number_format($nombrepus->subtotal)}}</td>
+        <td>{{number_format($nombrepus->preciounitario2)}}</td>
+
+        @if($nombrepus->total1>$nombrepus->preciounitario2)
+        <td class="info">{{number_format(($nombrepus->total1-$nombrepus->preciounitario2))}}</td>
         @else
-        <td class="success">{{number_format($nombrepus->subtotal)}}</td>
+        <td class="danger">{{number_format(($nombrepus->total1-$nombrepus->preciounitario2))}}</td>
         @endif
 
 
@@ -57,8 +56,7 @@ Comparar
         <th>Precio Unitario</th>
         <th>Total.</th>
         <th>Neto</th>
-        <th>IVA</th>
-        <th>TotalF</th>
+        <th>Saldo</th>
 
     </tr>
     </tfoot>

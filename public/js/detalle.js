@@ -26,6 +26,7 @@ $(document).ready(function(){
             $('#precio_unitario').val(data.precio_unitario);
             //$('#total').val(data.total);
             $('#factura_fk').val(data.factura_fk);
+            $('#item_id').val(data.item_id);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
 
@@ -100,6 +101,7 @@ $(document).ready(function(){
             cantidad:  $('#cantidad').val(),
             precio_unitario: $('#precio_unitario').val(),
            // total: $('#total').val(),
+            item_id: $('#item_id').val(),
             factura_fk: $('#factura_fk').val()
         }
 
@@ -128,7 +130,7 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
 
-                var detalle = '<tr id="detalle' + data.id + '"><td>' + data.id + '</td><td>' + data.nombrepu + '</td><td>' + data.cantidad + '</td><td>' + data.precio_unitario + '</td><td>'+ data.factura_fk + '</td><td>';
+                var detalle = '<tr id="detalle' + data.id + '"><td>' + data.id + '</td><td>' + data.nombrepu + '</td><td>' + data.cantidad + '</td><td>' + data.precio_unitario + '</td><td>'+ data.factura_fk + '</td><td>'+ data.item_id +' </td><td>';
                 detalle += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
                 detalle += '<button class="btn btn-danger btn-xs btn-delete delete-detalle" value="' + data.id + '">Delete</button></td></tr>';
 

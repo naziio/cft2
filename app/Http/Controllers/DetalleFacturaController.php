@@ -20,11 +20,17 @@ class DetalleFacturaController extends Controller
 
        // $factura = Factura::find($request->id);
         $factura = $facturas;
-        $detalle = DetalleFactura::select('id','nombrepu','cantidad','precio_unitario','total')
+        $detalle = DetalleFactura::select('id','nombrepu','cantidad','precio_unitario','total','item_id')
             ->where('factura_fk',$factura)
             ->get();
+        $obra= Factura::find($factura);
+        $obra= $obra->obra_fk;
 
-        return view('obra.factura.detalle.index', compact('factura','detalle'));
+        $item = NombrePU::select('id')
+            ->where('presupuesto_fk',$obra)
+            ->pluck('id','id');
+        dd($item);
+        return view('obra.factura.detalle.index', compact('factura','detalle','item'));
     }
 
 
@@ -53,11 +59,7 @@ class DetalleFacturaController extends Controller
 
        $obradetalle=$request->factura_fk;
 
-        $factura= DB::table('factura')
-            ->join('detalle_factura' ,'detalle_factura.factura_fk','=', 'factura.id')
-        ->where('factura.id',$obradetalle)
-        ->select('factura.obra_fk')
-            ->get()->last();
+
         $detalle= new DetalleFactura($request->all());
         $detalle->user_fk= Auth::id();
         $detalle->save();
@@ -88,6 +90,7 @@ class DetalleFacturaController extends Controller
         $detalle->cantidad = $request->cantidad;
         $detalle->precio_unitario = $request->precio_unitario;
         $detalle->factura_fk = $request->factura_fk;
+        $detalle->item_id = $request->item_id;
         $detalle->user_fk = $user;
 
 
@@ -181,7 +184,6 @@ class DetalleFacturaController extends Controller
        $nombrepu = DB::table('nombrepu')
             ->join('factura', 'nombrepu.nombrepu', '=', 'factura.observacion')
            ->select('nombrepu.id','nombrepu.nombrepu', 'nombrepu.cantidad as cantidad1', 'nombrepu.preciounitario', 'nombrepu.total as total1', DB::raw('SUM(factura.subtotal) as subtotal'), DB::raw('SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva)as iva') )
-
            ->groupby('nombrepu.nombrepu', 'cantidad1', 'nombrepu.preciounitario', 'total1')
            ->get();
         return view('obra.comparar.index', compact('nombrepu'));
