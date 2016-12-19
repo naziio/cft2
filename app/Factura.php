@@ -15,8 +15,8 @@ class Factura extends Model
      *
      * @var array
      */
-    protected $fillable = ['razon_social','subtotal','recargo','obra_fk',
-        'num_factura', 'monto_exento', 'descuentos','impuesto_especifico', 'neto', 'iva', 'total_concepto','observacion','user_fk'
+    protected $fillable = ['id','razon_social','recargo','obra_fk',
+        'num_factura', 'monto_exento','impuesto_especifico','user_fk'
     ];
 
     /**
@@ -27,7 +27,7 @@ class Factura extends Model
 
     public function detalle()
     {
-        return $this->belongsToMany('App\DetalleFactura','id_producto');
+        return $this->hasMany('App\DetalleFactura','factura_fk', 'id');
     }
 
 }

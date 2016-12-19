@@ -4,7 +4,6 @@
 Facturas
 @endsection
 
-
 @section('main-content')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
 
@@ -18,6 +17,7 @@ Facturas
         <a href="{{ url('proveedor')}}"><button id="btn-add2" name="btn-add2" class="btn btn-primary">Agregar PROVEEDOR</button></a>
         <div>
 
+
             <!-- Table-to-load-the-data Part -->
             <table class="table table-bordered" id="facturas">
                 <thead>
@@ -25,64 +25,88 @@ Facturas
                     <th>ID</th>
                     <th>Razon social</th>
                     <th>N° Factura</th>
-                    <th>Subtotal</th>
                     <th>Recargo</th>
                     <th>Monto exento</th>
-                    <th>Descuentos</th>
                     <th>Imp. especif.</th>
                     <th>Neto</th>
                     <th>IVA</th>
-                    <th>Concepto</th>
-                    <th>Obser.</th>
-
-<th>Subido el</th>
+                    <th>TOTAL</th>
+                    <th>Subido el</th>
                     <th></th>
                 </tr>
                 </thead>
                <tbody id="factura-list" name="factura-list">
+
                 @foreach ($factura as $facturas)
+
                 <tr id="factura{{$facturas->id}}">
                     <td>{{$facturas->id}}</td>
                     <td>{{$facturas->razon_social}}</td>
                     <td>{{$facturas->num_factura}}</td>
-                    <td>{{number_format(($facturas->cantidad*$facturas->preciounitario)*1.19)}}</td>
                     <td>{{number_format($facturas->recargo)}}</td>
                     <td>{{number_format($facturas->monto_exento)}}</td>
-                    <td>{{number_format($facturas->descuentos)}}</td>
+                    <!--<td>{{number_format($facturas->descuentos)}}</td>-->
                     <td>{{number_format($facturas->impuesto_especifico)}}</td>
-                    <td>{{number_format(($facturas->cantidad*$facturas->preciounitario))}}</td>
-                    <td>{{number_format(($facturas->cantidad*$facturas->preciounitario)*0.19)}}</td>
-                    <td>{{$facturas->observacion}}</td>
+                   @if($facturas->detalle->count() != 0)
+
+
+                   @foreach($facturas->detalle as $detalles)
+
+                    <?
+
+                    $neto =0;
+                    $iva=0;
+                    $total=0;
+
+
+                    for($cont =0;$cont < sizeof($detalles);$cont++)
+                    {
+                        $neto = $neto + ($detalles->precio_unitario*$detalles->cantidad);
+                        $iva = $iva + ($detalles->precio_unitario*$detalles->cantidad)*0.19;
+                        $total = $total + ($detalles->precio_unitario*$detalles->cantidad) *1.19;
+                    }
+
+                    ?>
+                    @endforeach
+                    <td>{{ isset($detalles->factura_fk) ? number_format($neto) :'0'}}</td>
+                    <td>{{isset($detalles->factura_fk) ? number_format($iva) :'0'}}</td>
+                    <td>{{isset($detalles->factura_fk) ? number_format($total) : '0'}}</td>
+
+                    @else
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                    @endif
+
+                   <!-- <td>{{$facturas->observacion}}</td>-->
                     <td>{{$facturas->created_at}}</td>
                     <td>
 
 
-                        <a href="{{ route('detalle', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">Cargar Datos</button></a>
-                        <a href="{{ route('comparar/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">COMPARAR</button></a>
+                        <a href="{{ route('detalle', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">Detalle </button></a>
+                        <a href="{{ route('comparar/index', $facturas) }}">  <button type="submit" class="btn btn-primary " value="">COMPARAR </button></a>
 
                         <button  class="btn btn-warning btn-xs btn-detail open-modal" value="{{$facturas->id}}">Editar</button>
                         <button  class="btn btn-danger btn-xs btn-detail delete-factura" value="{{$facturas->id}}">Eliminar</button>
 <!--                        <a href="{{ url('obra/factura/detalle/show', $facturas->id) }}"> <button class="btn btn-danger btn-xs" value="{{$facturas->id}}">Detalle</button></a>-->
                     </td>
                 </tr>
+
                 @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
                     <th>ID</th>
                     <th>Razon social</th>
-
                     <th>N° Factura</th>
-                    <th>Subtotal</th>
                     <th>Recargo</th>
                     <th>Monto exento</th>
-                    <th>Descuentos</th>
                     <th>Imp. especif.</th>
                     <th>Neto</th>
                     <th>IVA</th>
-                    <th>Concepto</th>
-                    <th>Obser.</th>
-<th>Subido el</th>
+                    <th>TOTAL</th>
+                    <th>Subido el</th>
                     <th></th>
 
                 </tr>
@@ -106,12 +130,7 @@ Facturas
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="subtotal" class="col-sm-3 control-label">SUB TOTAL</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control " id="subtotal" name="subtotal">
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <label for="recargo" class="col-sm-3 control-label">Recargo</label>
                                     <div class="col-sm-9">
@@ -130,12 +149,13 @@ Facturas
                                         <input type="text" class="form-control " id="monto_exento" name="monto_exento">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                               <!-- <div class="form-group">
                                     <label for="descuentos" class="col-sm-3 control-label">Descuento</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control " id="descuentos" name="descuentos">
                                     </div>
                                 </div>
+                                -->
                                 <div class="form-group error">
                                     <label for="impuesto_especifico" class="col-sm-3 control-label">Imp. especifico</label>
                                     <div class="col-sm-9">
@@ -143,34 +163,40 @@ Facturas
                                     </div>
                                 </div>
 
+                                <!--
+                                                                <div class="form-group">
+                                                                    <label for="neto" class="col-sm-3 control-label">Neto</label>
+                                                                    <div class="col-sm-9">
+                                                                        <input type="text" class="form-control" id="neto" name="neto" placeholder="" value="">
+                                                                    </div>
+                                                                </div>
 
-                                <div class="form-group">
-                                    <label for="neto" class="col-sm-3 control-label">Neto</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="neto" name="neto" placeholder="" value="">
-                                    </div>
-                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="iva" class="col-sm-3 control-label">IVA</label>
+                                                                    <div class="col-sm-9">
+                                                                        <input type="text" class="form-control" id="iva" name="iva" placeholder="" value="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="subtotal" class="col-sm-3 control-label">TOTAL</label>
+                                                                    <div class="col-sm-9">
+                                                                        <input type="text" class="form-control " id="subtotal" name="subtotal">
+                                                                    </div>
+                                                                </div>
 
-                                <div class="form-group">
-                                    <label for="iva" class="col-sm-3 control-label">IVA</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="iva" name="iva" placeholder="" value="">
-                                    </div>
-                                </div>
+                                                               <div class="form-group">
+                                                                    <label for="total_concepto" class="col-sm-3 control-label">Concepto</label>
+                                                                    <div class="col-sm-9">
+                                                                        <input type="text" class="form-control" id="total_concepto" name="total_concepto" placeholder="" value="">
+                                                                    </div>
+                                                                </div>
 
-                                <div class="form-group">
-                                    <label for="total_concepto" class="col-sm-3 control-label">Concepto</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="total_concepto" name="total_concepto" placeholder="" value="">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="observacion" class="col-sm-3 control-label">Observacion</label>
-                                    <div class="col-sm-9">
-                                        {!! Form::select('observacion', $nombrepu,$selected,['class' => 'form-control', 'id'=> 'observacion']) !!}
-                                    </div>
-                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="observacion" class="col-sm-3 control-label">Observacion</label>
+                                                                    <div class="col-sm-9">
+                                                                        {!! Form::select('observacion', $nombrepu,$selected,['class' => 'form-control', 'id'=> 'observacion']) !!}
+                                                                    </div>
+                                                                </div>-->
                                 <div class="form-group">
                                     <label for="obra_fk" class="col-sm-3 control-label">OBRA</label>
                                     <div class="col-sm-9">

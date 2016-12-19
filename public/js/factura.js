@@ -19,17 +19,17 @@ $(document).ready(function(){
             console.log(data);
             $('#factura_id').val(data.id);
             $('#razon_social').val(data.razon_social);
-            $('#subtotal').val(data.subtotal);
             $('#recargo').val(data.recargo);
             $('#num_factura').val(data.num_factura);
             $('#monto_exento').val(data.monto_exento);
-            $('#descuentos').val(data.descuentos);
+           // $('#descuentos').val(data.descuentos);
             $('#impuesto_especifico').val(data.impuesto_especifico);
-            $('#neto').val(data.neto);
+         /*   $('#neto').val(data.neto);
             $('#iva').val(data.iva);
-            $('#total_concepto').val(data.total_concepto);
-            $('#observacion').val(data.observacion);
-            $('#obra_fk').val(data.obra_fk);
+            $('#subtotal').val(data.subtotal);
+           // $('#total_concepto').val(data.total_concepto);
+           // $('#observacion').val(data.observacion);
+          */  $('#obra_fk').val(data.obra_fk);
             // $('#estado').val(data.estado);
             $('#btn-save').val("update");
             $('#myModal').modal('show');
@@ -99,17 +99,18 @@ $(document).ready(function(){
 
         var formData = {
             razon_social: $('#razon_social').val(),
-            subtotal: $('#subtotal').val(),
             recargo: $('#recargo').val(),
             num_factura: $('#num_factura').val(),
             monto_exento: $('#monto_exento').val(),
-            descuentos: $('#descuentos').val(),
             impuesto_especifico: $('#impuesto_especifico').val(),
+          /*  descuentos: $('#descuentos').val(),
+
             neto: $('#neto').val(),
             iva:  $('#iva').val(),
-            total_concepto: $('#total_concepto').val(),
-            observacion: $('#observacion').val(),
-            obra_fk:  $('#obra_fk').val()
+            subtotal: $('#subtotal').val(),
+          //  total_concepto: $('#total_concepto').val(),
+           observacion: $('#observacion').val(),
+           */  obra_fk:  $('#obra_fk').val()
            // estado: $('#estado').val()
         }
 
@@ -138,7 +139,7 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
 
-                var factura = '<tr id="factura' + data.id + '"><td>' + data.id + '</td><td>' + data.razon_social + '</td><td>' + data.subtotal + '</td><td>'+ data.recargo + '</td><td>' + data.num_factura +  '</td><td>' + data.monto_exento + '</td><td>' + data.descuentos + '</td><td>' + data.impuesto_especifico + '</td><td>' + data.neto + '</td><td>'+ data.iva + '</td><td>'+ data.total_concepto + '</td><td>'+ data.observacion + '</td><td>'+ data.obra_fk + '</td>';
+                var factura = '<tr id="factura' + data.id + '"><td>' + data.id + '</td><td>' + data.razon_social + '</td><td>'+ data.recargo + '</td><td>' + data.num_factura +  '</td><td>' + data.monto_exento + '</td><td>' + data.impuesto_especifico + '</td><td>'+ data.obra_fk + '</td>';
                 factura += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
                 factura += '<button class="btn btn-danger btn-xs btn-delete delete-factura" value="' + data.id + '">Delete</button></td></tr>';
 

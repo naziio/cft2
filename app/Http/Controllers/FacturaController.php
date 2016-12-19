@@ -36,19 +36,35 @@ class FacturaController extends Controller
             ->select('nombrepu.id','nombrepu.nombrepu', 'nombrepu.cantidad as cantidad1', 'nombrepu.preciounitario', 'nombrepu.total as total1', DB::raw('SUM(factura.subtotal) as subtotal'), DB::raw('SUM(factura.neto) as neto'), DB::raw('SUM(factura.iva)as iva') )
             ->groupby('nombrepu.nombrepu', 'cantidad1', 'nombrepu.preciounitario', 'total1')
             ->get();
-       */
-        $factura = Factura::join('detalle_factura','factura.id','=','detalle_factura.factura_fk')
-        ->where('factura.obra_fk',$obras)
-        ->select('factura.*','detalle_factura.cantidad as cantidad','detalle_factura.precio_unitario as preciounitario')
+
+        $factura = Factura::where('factura.obra_fk',$obras)
+        ->select('factura.*')
         ->get();
-       // dd($factura);
+
+        $detalle= DB::table('factura')
+           ->where('factura.obra_fk',$obras)
+        ->join('detalle_factura','factura.id','=','detalle_factura.factura_fk')
+        ->select('factura.id', DB::RAW('SUM(detalle_factura.cantidad * detalle_factura.precio_unitario) as preciounitario2'),'detalle_factura.factura_fk')
+        ->groupby('detalle_factura.factura_fk','factura.id')
+        ->get();
+        //dd($detalle);
+*/
+    /*  $prueba=  Factura::with('detalle')->select('factura.id', DB::RAW('SUM(detalle_factura.cantidad * detalle_factura.precio_unitario) as preciounitario2'),'detalle_factura.factura_fk')->groupby('detalle_factura.factura_fk','factura.id')
+            ->get();*/
+        $factura= Factura::with('detalle')
+        ->where('factura.obra_fk',$obras)
+        ->get();
+
+
+
+       //dd($factura);
         $nombrepu = NombrePU::select('nombrepu')
         ->where('presupuesto_fk',$obras)
             ->pluck('nombrepu','nombrepu');
         $selected = array();
 
 
-        return view('obra.factura.index',compact('factura','proveedor','selected','nombrepu','obras'));
+        return view('obra.factura.index',compact('factura','proveedor','selected','nombrepu','obras','detalle'));
        // return Response::json(compact('factura','proveedor','selected','nombrepu','obras'));
         //return view('obra.factura.index');
     }
@@ -94,7 +110,9 @@ class FacturaController extends Controller
        // $obras= $request->obras;
         $proveedor = Proveedor::all()
             ->pluck('name','name');
-        $factura = Factura::where('obra_fk',$obras)
+        $factura = Factura::join('detalle_factura','factura.id','=','detalle_factura.factura_fk')
+            ->where('factura.obra_fk',$obras)
+            ->select('factura.*','detalle_factura.cantidad as cantidad','detalle_factura.precio_unitario as preciounitario')
             ->get();
         $nombrepu = NombrePU::select('nombrepu')
             ->where('presupuesto_fk',$obras)
@@ -132,17 +150,17 @@ class FacturaController extends Controller
         $factura = \App\Factura::findorfail($factura_id);
 
         $factura->razon_social = $request->razon_social;
-        $factura->subtotal = $request->subtotal;
+       // $factura->subtotal = $request->subtotal;
         $factura->obra_fk = $request->obra_fk;
         $factura->recargo = $request->recargo;
         $factura->num_factura = $request->num_factura;
         $factura->monto_exento = $request->monto_exento;
-        $factura->descuentos = $request->descuentos;
+       // $factura->descuentos = $request->descuentos;
         $factura->impuesto_especifico = $request->impuesto_especifico;
-        $factura->neto = $request->neto;
-        $factura->iva = $request->iva;
-        $factura->total_concepto = $request->total_concepto;
-        $factura->observacion = $request->observacion;
+       // $factura->neto = $request->neto;
+      //  $factura->iva = $request->iva;
+      //  $factura->total_concepto = $request->total_concepto;
+     //   $factura->observacion = $request->observacion;
         $factura->user_fk = $user;
 
 
